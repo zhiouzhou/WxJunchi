@@ -1,0 +1,17 @@
+<!--pages/user/myGarage/addGarage.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='garage'>
+  <input placeholder='请输入您的车辆型号' value='{{carName}}' bindinput='onCarName' class='ft-32 color-222'></input>
+</view>
+<view class='car-info' wx:if="{{pageType=='add'}}">
+  <text class='ft-24 color-84'>机动车车架号</text>
+  <view class='upload-image' bindtap='uploadImg'>
+    <image src='/assets/image/jiahao@2x.png' class='upload-add'wx:if="{{!imageUrl}}"></image>
+    <image src='{{imageUrl}}' style="width:100%;height:100%;" wx:else ></image>
+  </view>
+  
+</view>
+
+<!-- 确定提交按钮 -->
+<view class='submit' bindtap='submit' hover-class='hover_class' >确认提交</view>

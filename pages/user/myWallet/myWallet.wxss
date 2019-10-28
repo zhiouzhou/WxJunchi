@@ -1,0 +1,102 @@
+/* pages/user/myWallet/myWallet.wxss */
+
+page {
+  border: none;
+  background: #fff;
+}
+
+.wallet-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f43e32;
+  padding: 60rpx 0 114rpx 0;
+}
+
+.cash-button {
+  padding: 14rpx 47rpx;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 50rpx;
+  margin-top: 24rpx;
+}
+
+.money-info {
+  background: #fff;
+  margin: -68rpx 36rpx 0 36rpx;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 54rpx;
+  box-shadow: 0px 0px 10rpx 5rpx rgba(160, 160, 160, 0.2);
+}
+
+.money-info-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profit-list {
+  margin-top: 36rpx;
+}
+
+.profit-title {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.profit-line {
+  width: 8rpx;
+  height: 32rpx;
+  background: #f43e32;
+  margin-right: 12rpx;
+}
+
+.list-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profit-list-info {
+  border-bottom: 1px solid #eaeaea;
+  padding: 24rpx;
+}
+
+.list-info > text {
+  line-height: 38rpx;
+}
+
+.empty{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin-top: 140rpx;
+}
+
+.empty-icon{
+  width: 180rpx;
+  height:180rpx;
+  margin-bottom: 40rpx;
+}
+.empty-tip{
+  color: #656c78;
+
+}
+
+.select-btn{
+  color: #656c78;
+  background: #fff;
+  border: 2rpx solid #a9b2bd;
+  width: 176rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}

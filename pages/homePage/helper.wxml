@@ -1,0 +1,19 @@
+<!--pages/homePage/helper.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="18" next-margin="16" bindchange='changeFun' circular="true">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}" easing-function="easeInOutCubic">
+    <swiper-item>
+      <!-- 暂时去掉 -->
+      <!--  style='{{index != centerItem?"height:90%;margin-top:20rpx":""}}' -->
+      <view class="optionBox">
+        <!-- <view class='mask' wx:if='{{ index != centerItem }}'></view> -->
+        <image src="{{item.imageUrl}}" catchtap='gotoImageDetail' data-info-url="{{item.infoUrl}}" class="slide-image" width="355" height="150" />
+      </view>
+      <image src="{{wxaCode}}" class="wxCode"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class='saveToPhone' hover-class="hover_class" catchtap='saveToPhone'>保存到手机</view>

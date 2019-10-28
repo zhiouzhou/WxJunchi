@@ -1,0 +1,2 @@
+<!--pages/homePage/information.wxml-->
+<web-view  src="{{infoUrl}}"></web-view>

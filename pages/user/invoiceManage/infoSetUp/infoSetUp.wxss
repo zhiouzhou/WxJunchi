@@ -1,0 +1,18 @@
+/* pages/user/invoiceManage/infoSetUp/infoSetUp.wxss */
+
+page {
+  background: #fff;
+}
+
+.invoice-info {
+  padding: 34rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.more-icon {
+  width: 13rpx;
+  height: 24rpx;
+}

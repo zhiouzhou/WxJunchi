@@ -1,0 +1,122 @@
+<!--pages/user/orders/orderDetail.wxml-->
+<import src="../../../components/product/product.wxml" />
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<skeleton selector="skeleton" loading="spin" bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+<view class='skeleton'>
+  <view class='order-state '>
+    <image class='state-logo skeleton-rect' src='/assets/image/ensure_icon@2x.png'></image>
+    <text class='ft-32 color-FFF skeleton-rect'>{{orderDetailInfo.status=='FINISH'?'已完成':orderDetailInfo.status=='NO_PAY'?'待付款':orderDetailInfo.status=='NO_RESERVE'?'待指派':orderDetailInfo.status=='USER_RESERVE'?'已指派':orderDetailInfo.status=='NO_INSTALL'?'待安装':orderDetailInfo.status=='NO_COMMENT'?'待评论':orderDetailInfo.status=='CANCEL'?'已取消订单':orderDetailInfo.status=='TIMEOUT'?'交易已关闭':orderDetailInfo.status=='REFUNDED'?'已退款':orderDetailInfo.status=='REFUNDING'?'退款中':''}}</text>
+  </view>
+  <!-- <view class='address'>
+  <text class='ft-32 color-333 bold'>北京丰台骏驰安装点</text>
+  <text class='ft-26 color-84' style='padding-top:0'>滴滴滴滴滴ID滴滴滴滴滴滴sdsadsadfsadsad滴滴滴IDIDi世界都是大扫荡</text>
+  <image src='/assets/image/letter.png' class='line-image'></image>
+</view> -->
+  <!-- 商品信息 -->
+  <view class='product-info'>
+    <!-- <block>
+      <template is="product-detail" data="{{productItem:orderDetailInfo.goods,tag:'orderDetail'}}"></template>
+    </block> -->
+    <view class='product-info-content-detail' wx:for="{{orderDetailInfo.goods}}">
+      <view class='product-info-content-1'>
+        <image src='{{item.goodsImg}}' class='product-image skeleton-rect' mode='aspectFit'></image>
+        <view class='product-name-price'>
+          <text class='ft-30 color-333' skeleton-rect>{{item.goodsName}}</text>
+          <view class='product-price'>
+            <view>
+              <text class='color-2b ft-24'>￥</text>
+              <text class='color-2b ft-44 skeleton-rect'>{{WxsUtil.splitNum(item.goodsPrice)}}</text>
+            </view>
+            <view class='num ft-30 skeleton-rect'>x {{item.count}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 合计 -->
+    <view class='tatal'>
+      <text class='ft-26 color-222 skeleton-rect' style='padding-right:30rpx;display:block;'>共{{count}}件商品</text>
+      <view style='display:flex;align-items:center;'>
+        <text class='ft-26 color-222 skeleton-rect'>合计：</text>
+        <text class='ft-26 color-2b'>￥</text>
+        <text class='ft-44 color-2b skeleton-rect'>{{WxsUtil.splitNum(orderDetailInfo.price,0)||''}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 下单信息 -->
+  <view class="place-order-info">
+    <view class='place-an-order'>
+      <view class='info'>
+        <text class='ft-28 color-84'>下单时间：</text>
+        <text class='ft-28 color-222 skeleton-rect' style='display:inline-block'>{{orderDetailInfo.gmtCreate}}</text>
+      </view>
+      <view class='info'>
+        <text class='ft-28 color-84'>订单金额：</text>
+        <text class='ft-28 color-222 skeleton-rect'>￥{{WxsUtil.splitNum(orderDetailInfo.price,0)}}</text>
+      </view>
+      <!-- <view class='info'>
+        <text class='ft-28 color-84'>完成时间：</text>
+        <text class='ft-28 color-222 skeleton-rect'>{{orderDetailInfo.gmtModified}}</text>
+      </view> -->
+    </view>
+    <view class='store' wx:if="{{orderDetailInfo.status=='FINISH'||orderDetailInfo.status=='USER_RESERVE'||orderDetailInfo.status=='NO_INSTALL'||orderDetailInfo.status=='NO_COMMENT'}}">
+      <view class='info' catchtap='gotoStoreInfo' style='display:flex;align-items:center;justify-content:space-between;'>
+        <view>
+          <text class='ft-28 color-84'>安装门店：</text>
+          <text class='ft-28 color-222 skeleton-rect'>{{storeInfo.stationName?storeInfo.stationName:''}}</text>
+        </view>
+        <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+      </view>
+      <view class='info' wx:if="{{orderDetailInfo.status=='NO_INSTALL'}}" >
+        <text class='ft-28 color-84'>预约时间：</text>
+        <text class='ft-28 color-222 skeleton-rect'>{{storeInfo.bookTime}}</text>
+      </view>
+      <view class='info'>
+        <text class='ft-28 color-84'>联系电话：</text>
+        <text class='ft-28 color-222 skeleton-rect'>{{storeInfo.userPhone}}</text>
+      </view>
+      <view class='info'>
+        <text class='ft-28 color-84'>车辆：</text>
+        <!-- <text class='ft-28 color-222 skeleton-rect'>{{storeInfo.userPhone}}</text> -->
+        <image src="{{storeInfo.driverLicense}}" style='width:200rpx;height:188rpx;'></image>
+      </view>
+    </view>
+    <view class='store' wx:if="{{orderDetailInfo.status=='NO_RESERVE'||orderDetailInfo.status=='USER_RESERVE'||orderDetailInfo.status=='NO_INSTALL'||orderDetailInfo.status=='NO_COMMENT'||orderDetailInfo.status=='FINISH'||orderDetailInfo.status=='NO_PAY'}}">
+      <text class='ft-28 color-84'>{{orderDetailInfo.status=='NO_RESERVE'?"我们将尽快指派门店，请您耐心等待~":orderDetailInfo.status=='USER_RESERVE'?"已为您指派门店，请耐心等待门店与您沟通或者您主动联系门店~":orderDetailInfo.status=='NO_INSTALL'?"您还未安装，请您准时进行安装~":orderDetailInfo.status=='NO_COMMENT'?"您已安装完毕，请对产品进行评价~":orderDetailInfo.status=='FINISH'&&orderDetailInfo.maintenanceStatus=='NO'?"您的订单已完成，如果需要维修可以申请维修哦~":orderDetailInfo.status=='NO_PAY'?"订单还未支付，快去支付吧~":orderDetailInfo.status=='FINISH'&&orderDetailInfo.maintenanceStatus=='ING'?"您已提交维修申请，请准时到店维修~":""}}</text>
+    </view>
+    <view class='invoice' wx:if="{{orderDetailInfo.status=='FINISH'}}">
+      <view class='invoice-state '>
+        <text class='ft-28 color-84' style='margin-right:8rpx;display:inline-block;'>发票</text>
+        <text class='ft-28 color-222 skeleton-rect'>{{orderDetailInfo.invoiceStatus=="NO"?"未开票":orderDetailInfo.invoiceStatus=="ING"?"开票中":orderDetailInfo.invoiceStatus=="YES"?"已开票":""}}</text>
+      </view>
+      <view class='check' wx:if="{{orderDetailInfo.status=='FINISH'}}" catchtap='gotoInvoice' data-order-no="{{orderDetailInfo.orderNo}}" data-price='{{orderDetailInfo.price}}'>
+        <text class='ft-24 color-84'>查看发票/立即开票</text>
+        <image src="/assets/image/ic_youjiantou_xiao@2x.png" class="more-icon"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view style='height:88rpx;'></view>
+<!-- 处理订单按钮 -->
+<view class='handle-order '>
+  <!-- <view class='handle-btn ft-32 color-222'>删除订单</view> -->
+  <view class='handle-btn ft-32 color-2b' style='border: 2rpx solid #aa2b2b;' wx:if="{{orderDetailInfo.status=='NO_COMMENT'}}" catchtap='gotoEaluation' data-order-no="{{orderDetailInfo.orderNo}}" data-goods-image="{{orderDetailInfo.goods[0].goodsImg}}">立即评价</view>
+  <view class='handle-btn ft-32 color-FFF' wx:if="orderDetailInfo.status=='FINISH'" style='background: linear-gradient(rgb(204,14,23),rgb(232,77,85));' bindtap='againBuy' data-product-item="{{orderDetailInfo.goods[0]}}" data-product-no='{{orderDetailInfo.goods[0].goodsNo}}'>再次购买</view>
+  <!-- <view class='gray-border' wx:if="{{orderDetailInfo.status=='NO_RESERVE'}}" catchtap='install' data-order-item="{{orderDetailInfo}}">
+    预约安装
+  </view> -->
+  <form bindsubmit='refund' report-submit='true' data-order-no="{{orderDetailInfo.orderNo}}">
+    <button class='gray-border' wx:if="{{orderDetailInfo.status=='NO_RESERVE'}}" formType="submit">
+      退款
+    </button>
+  </form>
+  <form bindsubmit='cancelOrder' report-submit='true' data-order-no="{{orderDetailInfo.orderNo}}">
+    <button class='gray-border' wx:if="{{orderDetailInfo.status=='NO_PAY'}}" formType="submit">
+      取消订单
+    </button>
+  </form>
+  <view class='red-border' wx:if="{{orderDetailInfo.status=='NO_PAY'}}" catchtap='payMent' data-order-no="{{orderDetailInfo.orderNo}}">立即支付</view>
+  <view class='red-border' wx:if="{{(orderDetailInfo.status=='FINISH'||orderDetailInfo.status=='NO_COMMENT')&&orderDetailInfo.maintenanceStatus=='NO'}}" catchtap='applyService'>申请维修</view>
+</view>

@@ -1,0 +1,69 @@
+/* pages/user/myBankCard/addBankCard.wxss */
+
+page {
+  background: #fff;
+  border-top: none;
+}
+
+.warn-tips {
+  padding: 12rpx 24rpx;
+  background: linear-gradient(90deg, rgb(204, 14, 23), rgb(232, 77, 85));
+}
+
+.card-info {
+  border-bottom: 2rpx solid #eaeaea;
+  padding: 30rpx 24rpx;
+}
+
+.user-info {
+  display: block;
+  padding-bottom: 21rpx;
+}
+
+.agree-btn {
+  margin-top: 48rpx;
+  display: flex;
+  align-items: center;
+}
+
+.select-icon {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 12rpx;
+}
+
+.tips {
+  margin-top: 100rpx;
+  padding: 0 24rpx;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 24rpx;
+}
+
+.line {
+  display: block;
+  width: 6rpx;
+  height: 30rpx;
+  background: #f43e32;
+  border-radius: 3rpx;
+  margin-right: 18rpx;
+}
+
+.submit {
+  width: 94%;
+  position: fixed;
+  bottom: 48rpx;
+  left: 24rpx;
+  background: #e00000;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 12rpx;
+  text-align: center;
+}
+
+.hover_class {
+  background: #aa2b2b;
+}

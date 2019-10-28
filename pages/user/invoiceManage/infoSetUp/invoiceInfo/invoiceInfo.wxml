@@ -1,0 +1,37 @@
+<!--pages/user/invoiceManage/infoSetUp/invoiceInfo/invoiceInfo.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<template name="receiveAddress">
+  <view class='address-info' bindtap="selectInvoice" data-invoice-info="{{item}}">
+    <view class='user-state'>
+      <text class='ft-30 color-333'>{{item.title}}</text>
+    </view>
+    <text class='ft-26 color-84' style='margin-top:24rpx'>{{item.taxNo}}</text>
+  </view>
+  <view class='set-default-buttom' style="justify-content:{{item.preferred?'space-between':'flex-end'}}">
+    <view class='each-contain'  wx:if="{{item.preferred}}">
+      <image style='width:44rpx;height:44rpx;' src='/assets/image/ic_gouwuchegouxuan@2x.png' mode='aspectFit' />
+      <text class='ft-28 color-222' style='margin-left:8rpx'>默认发票信息</text>
+    </view>
+    <!-- wx:if="{{item.canModify}}" 是否编辑  后台反数据 -->
+    <view class='each-contain'>
+      <!-- wx:if="{{!item.defaultAddress&&item.canModify}}" -->
+      <view class='button-grey' data-invoice-info="{{item}}" catchtap='edit' data-page-type='edit' data-tag = 'addInvoiceInfo'>编辑</view>
+      <view class='button-grey' data-id="{{item.id}}" catchtap='deleteInvoice'>删除</view>
+    </view>
+  </view>
+</template>
+<view class='address-content' wx:if="{{!isEmpty}}">
+  <block wx:for="{{invoiceList}}" wx:key="{{item.id}}">
+    <template is="receiveAddress" data="{{item}}" />
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <view class='select-btn ft-26' catchtap='addInvoiceInfo' data-tag = 'addInvoiceInfo' data-page-type="add">添加发票</view>
+</view>
+<view hover-class='hover-button' class='bottom-buttom' catchtap='addInvoiceInfo' data-tag = 'addInvoiceInfo' data-page-type="add">
+  <text class='ft-34' style='margin-left:16rpx'>新增常用开票信息</text>
+</view>

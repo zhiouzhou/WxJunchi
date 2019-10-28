@@ -1,0 +1,61 @@
+/* pages/user/accountManage/editDataPage.wxss */
+.username,.email,.code{
+  margin: 20rpx;
+  background: #fff;
+  padding: 24rpx;
+  border-radius: 16rpx;
+}
+
+.unensureEdit{
+  background: #dcdfe6;
+  width: 94%;
+  margin: 88rpx auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}
+.ensureEdit{
+  background: #e00000;
+   width: 94%;
+  margin: 88rpx auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}
+
+.editMobile{
+  background:#fff;
+  margin: 20rpx;
+  /* padding: 24rpx; */
+  border-radius: 16rpx;
+}
+
+.editMobie-input{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:24rpx;
+  border-bottom: 2rpx solid #eaeaea
+}
+.code-btn{
+  font-size: 28rpx;
+  padding: 20rpx 38rpx;
+  border: 2rpx solid #eaeaea;
+  border-radius: 44rpx;
+
+}
+.code{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 24rpx;
+}
+.hover_class{
+  background: #aa2b2b
+}

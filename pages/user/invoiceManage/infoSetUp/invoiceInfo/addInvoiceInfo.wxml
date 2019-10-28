@@ -1,0 +1,42 @@
+<!--pages/user/invoiceManage/infoSetUp/invoiceInfo/addInvoiceInfo.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>发票抬头</view>
+  <view style='display:flex;align-items:center;justify-content:space-between;'>
+    <input class='ft-34 color-222' placeholder='请输入发票抬头' value='{{invoiceInfo.title}}' bindinput="onTitle"></input>
+    <image src='/assets/image/clear@cancel@2x.png' class='delet-icon' wx:if="{{pageType==1}}"></image>
+  </view>
+</view>
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>纳税人识别号</view>
+  <input class='ft-34 color-222' placeholder='请输入税号' value='{{invoiceInfo.taxNo}}'  bindinput="onTaxNo"></input>
+</view>
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>注册地址</view>
+  <input class='ft-34 color-222' placeholder='企业客户可填写' value='{{invoiceInfo.addr}}'  bindinput="onAddr"></input>
+</view>
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>注册电话</view>
+  <input class='ft-34 color-222' placeholder='企业客户可填写' value='{{invoiceInfo.phone}}'  bindinput="onPhone"></input>
+</view>
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>开户银行</view>
+  <input class='ft-34 color-222' placeholder='企业客户可填写' value='{{invoiceInfo.bankType}}'  bindinput="onBankType"></input>
+</view>
+<view class='invoice-info'>
+  <view class='label ft-24 color-84'>银行账号</view>
+  <input class='ft-34 color-222' placeholder='企业客户可填写' value='{{invoiceInfo.bankNo}}'  bindinput="onBankNo"></input>
+</view>
+<view class='default-address'>
+  <image class='select-img' src='{{invoiceInfo.preferred?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' catchtap='defaultSelect'></image>
+  <text class='ft-30 color-222'>设为默认发票信息</text>
+</view>
+<!-- 温馨提示 -->
+<view class='tips'>
+  <view class="profit-title bold ft-34 color-222">
+    <text class="profit-line"></text>温馨提示</view>
+  <view class='tips-content ft-26 color-84'>2017年7月1日起，单位报销需填写纳税人识别号，如未填写不能报销，骏驰一概不予退还。部分地区的企业开票需要注册地址、注册电话、开户银行、银行账号，请注意填写。</view>
+</view>
+<!-- 确认提交 -->
+<view class='submit ft-32 color-FFF' hover-class='hover_class' bindtap="submit">确认提交</view>

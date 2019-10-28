@@ -1,0 +1,53 @@
+<!--pages/user/myWallet/myWallet.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+
+<view class="myWallet">
+  <view scroll-y bindscrolltolower="lower" lower-threshold='4' style='height:{{windowHeight}}px'>
+    <view class="wallet-bg">
+      <text class="color-FFF ft-26">可提现金额（元）</text>
+      <view class="color-FFF ft-88">{{WxsUtil.splitNum(walletInfo.balance)||0}}</view>
+      <view class="cash-button" bindtap='withdraw'>余额提现</view>
+    </view>
+    <view class="money-info">
+      <view class="money-info-show">
+        <text class="ft-26 color-84">预收益(元)</text>
+        <text class="ft-34 color-222">{{WxsUtil.splitNum(walletInfo.preBalance)|| 0}}</text>
+      </view>
+      <view class="money-info-show">
+        <text class="ft-26 color-84">累计收益(元)</text>
+        <text class="ft-34 color-222">{{WxsUtil.splitNum(walletInfo.total)|| 0}}</text>
+      </view>
+      <view class="money-info-show">
+        <text class="ft-26 color-84">股权(元)</text>
+        <text class="ft-34 color-222">{{WxsUtil.splitNum(walletInfo.stock)|| 0}}</text>
+      </view>
+    </view>
+    <!-- 收益明细 -->
+    <view class="profit-list">
+      <view class="profit-title">
+        <text class="profit-line"></text> 收益明细
+      </view>
+      <view class="profit-list-info" wx:for="{{tradeList}}" wx:if="{{!isEmpty}}">
+        <view class="list-info">
+          <text class="ft-30">{{item.tradeType=='PRE_BALANCE'?'预收益':item.tradeType=='BALANCE'?'余额':item.tradeType=='STOCK'?'股权':''}}</text>
+          <view>
+            <text class="ft-30" wx:if="{{item.amount>0}}">+</text>
+            <text class="ft-30">{{WxsUtil.splitNum(item.amount)|| 0}}</text>
+          </view>
+        </view>
+        <view class="list-info">
+          <text class="ft-26 color-84">{{item.gmtModified}}</text>
+          <text class="ft-26 color-84">{{item.desc||''}}</text>
+        </view>
+      </view>
+      <!-- 空页面 -->
+      <view class='empty' wx:if="{{isEmpty}}">
+        <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+        <text class='ft-26 empty-tip'>暂无数据</text>
+        <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+      </view>
+    </view>
+  </view>
+</view>

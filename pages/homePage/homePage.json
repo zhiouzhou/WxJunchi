@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#f43e32",
+  "navigationBarTextStyle": "white",
+  "backgroundColor":"#fff",
+  "backgroundTextStyle":"light",
+  "usingComponents": {
+    "skeleton": "/components/skeleton/skeleton"
+  },
+  "enablePullDownRefresh":true
+
+}

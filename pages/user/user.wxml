@@ -1,0 +1,130 @@
+<!--pages/user/user.wxml-->
+<!--个人信息背景  -->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<view>
+  <view class="user-info-wrap">
+    <!--头像和个人信息  -->
+    <view class="user-info-content">
+      <view class="user-name">
+        <text class="ft-46 color-000 bold">{{userInfo.nickname}}</text>
+        <text class="ft-20 color-000 phoneNum">{{userInfo.memberId}}</text>
+      </view>
+      <image class="user-logo" src='{{userInfo.headPic?userInfo.headPic:"/assets/image/ic-touxiang@2x.png"}}'></image>
+    </view>
+    <!-- style='background-image:url("../../assets/image/user_bg@2x.png");background-size:cover' -->
+    <view class="user-money" bindtap='navigatePage' data-tag="myWallet"  data-bundle='{{walletInfo}}'>
+      <image src='/assets/image/user_bg@2x.png' class='qiaobao-bg'></image>
+      <view class="qianbao">
+        <text class="ft-26 color-FFF">可提现金余额（元）</text>
+        <view class="ft-88 color-FFF money">{{WxsUtil.splitNum(walletInfo.balance)||0}}</view>
+        <view class="money-info">
+          <view class="money-info-show">
+            <text class="ft-26">预收益(元)</text>
+            <text class="ft-34">{{WxsUtil.splitNum(walletInfo.preBalance)||0}}</text>
+          </view>
+          <view class="money-info-show">
+            <text class="ft-26">累计收益(元)</text>
+            <text class="ft-34">{{WxsUtil.splitNum(walletInfo.total)||0}}</text>
+          </view>
+          <view class="money-info-show">
+            <text class="ft-26">股权(元)</text>
+            <text class="ft-34">{{WxsUtil.splitNum(walletInfo.stock)||0}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!--我的订单  -->
+  <view class="my-order">
+    <view class="my-order-nav" bindtap='navigatePage' data-tag="myOrder">
+      <text class="ft-34 color-222">我的订单</text>
+      <view class="all-order">
+        <text class="ft-26 color-84">查看全部订单</text>
+        <image class="check-all" src='/assets/image/ic_youjiantou_xiao@2x.png' mode='aspectFit'></image>
+      </view>
+    </view>
+    <!--订单  -->
+    <view class="order-list">
+      <view class='order-item' catchtap='navigatePage' data-tag='myOrder' data-bundle='NO_PAY'>
+        <image class='order-item-img' src='/assets/image/ic_daifukaun.png' mode='aspectFit' />
+        <text class='ft-26 color-222' style='margin-top:16rpx;'>待付款</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='myOrder' data-state="USER_RESERVE" data-bundle='NO_RESERVE'>
+        <image class='order-item-img' src='/assets/image/ic_daiyuyue@2x.png' mode='aspectFit' />
+        <text class='ft-26 color-222' style='margin-top:16rpx;'>待指派</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='myOrder' data-bundle='NO_INSTALL'>
+        <image class='order-item-img' src='/assets/image/ic_daianzhuang@2x.png' mode='aspectFit' />
+        <text class='ft-26 color-222' style='margin-top:16rpx;'>待安装</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='myOrder' data-bundle='NO_COMMENT'>
+        <image class='order-item-img' src='/assets/image/ic_daipinglun@2x.png' mode='aspectFit' />
+        <text class='ft-26 color-222' style='margin-top:16rpx;'>待评论</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='myOrder' data-bundle='FINISH'>
+        <image class='order-item-img' src='/assets/image/ic_shouhou@2x.png' mode='aspectFit' />
+        <text class='ft-26 color-222' style='margin-top:16rpx;'>售后</text>
+      </view>
+    </view>
+  </view>
+  <!-- 扫描二维码 -->
+  <view class='erweima'>
+    <view class='myWe-code' catchtap='showDialog'>
+      <image src='/assets/image/ic_wodeerweima@2x.png' class='code-icon'></image>
+      <text class='ft-32 color-222'>我的二维码</text>
+    </view>
+    <view class='myWe-code' style='border-right:none;justify-content:flex-end;' catchtap='scan_code'>
+      <image src='/assets/image/ic_saoma@2x.png' class='code-icon'></image>
+      <text class='ft-32 color-222'>扫描二维码</text>
+    </view>
+  </view>
+  <!--账户管理  -->
+  <view class="my-order">
+    <view class="my-order-nav"  catchtap='navigatePage' data-tag="accountManage">
+      <text class="ft-34 color-222">账户管理</text>
+      <view class="all-order">
+        <text class="ft-26 color-84">管理我的个人资料</text>
+        <image class="check-all" src='/assets/image/ic_youjiantou_xiao@2x.png' mode='aspectFit'></image>
+      </view>
+    </view>
+    <!--账户  -->
+    <view class="order-list account">
+      <view class='order-item' catchtap='navigatePage' data-tag='invoiceManage'>
+        <image class='order-item-img' src='/assets/image/ic_fapiao@2x.png' mode='aspectFit' />
+        <text class='ft-24 color-222' style='margin-top:16rpx;'>发票管理</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='complaint'>
+        <image class='order-item-img' src='/assets/image/ic_tousu@2x.png' mode='aspectFit' />
+        <text class='ft-24 color-222' style='margin-top:16rpx;'>投诉建议</text>
+      </view>
+      <view class='order-item' catchtap='navigatePage' data-tag='aboutUs'>
+        <image class='order-item-img' src='/assets/image/ic_guanyu@2x.png' mode='aspectFit' />
+        <text class='ft-24 color-222' style='margin-top:16rpx;'>关于我们</text>
+      </view>
+      <button open-type='share' class='order-item item-button' style='position:relative;padding:0;margin:0;background:#fff;line-height:0;line-height:1.5;'>
+        <!-- <button open-type='share'></button> -->
+        <image class='order-item-img' src='/assets/image/ic_haoyouShare@2x.png' mode='aspectFit' />
+        <text class='ft-24 color-222' style='margin-top:16rpx;z-index:99'>好友分享</text>
+      </button>
+    </view>
+  </view>
+</view>
+<!-- 我的二维码弹窗 -->
+<view class='QR-code' wx:if="{{dialogState}}">
+  <view class='qr-info'>
+    <view class='qr-name'>
+      <text class='ft-34 color-000'>{{userInfo.nickname}}</text>
+      <text class='ft-26 color-84 number'>{{userInfo.memberId}}</text>
+    </view>
+    <image src='{{userInfo.headPic?userInfo.headPic:"/assets/image/ic-touxiang@2x.png"}}' class='logo'></image>
+  </view>
+  <view class='scan-qr'>
+    <!-- <text class='ft-30 color-84'>扫描二维码，进行安装</text> -->
+    <image src='{{scanUrl}}' class='qr-image'></image>
+  </view>
+</view>
+<!-- 蒙层 -->
+<view class='mongolia' wx:if="{{dialogState}}" catchtap='hideDialog'></view>

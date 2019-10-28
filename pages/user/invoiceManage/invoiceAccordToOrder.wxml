@@ -1,0 +1,58 @@
+<!--pages/user/invoiceManage/invoiceAccordToOrder.wxml-->
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<import src="../../../components/product/product.wxml" />
+<!-- <view class='rule-titile'>
+  <text class='ft-26 color-FFF'>开票规则请</text>
+  <text class='ft-26 color-FFF underline'>点击查看</text>
+</view> -->
+<block wx:if="{{!isEmpty}}">
+  <view scroll-y style="height:{{windowHeight}}px" class='order-list-info' bindscrolltolower="lower">
+    <block wx:for="{{orderList}}" wx:key="{{item.productId}}">
+      <view class='shop-cart-list' catchtap='selectList' data-order-no="{{item.orderNo}}" data-price="{{item.amountPaid?item.amountPaid:item.price}}">
+        <image src='{{item.orderNo==selectNo?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' mode='aspectFit' class='select-icon'></image>
+        <view class='product-info'>
+          <!-- 商品信息 -->
+          <view class='product-info-content' wx:for="{{item.goods}}" wx:for-item="items">
+            <image src='{{items.goodsImg}}' class='product-image' mode='aspectFit'></image>
+            <view class='product-name-price'>
+              <view style='display:flex;align-items:center;justify-content:space-between'>
+                <text class='ft-30 color-333'>{{items.goodsName}}</text>
+                <text class='ft-30 color-84' style='padding-top:7rpx;padding-left:12rpx;'>x{{items.count}}</text>
+              </view>
+              <view class='product-price'>
+                <text class='ft-26 color-84'>{{item.gmtCreate}}</text>
+                <view>
+                  <text class='color-2b ft-22'>￥</text>
+                  <text class='color-2b ft-34'>{{item.amountPaid?WxsUtil.splitNum(item.amountPaid):WxsUtil.splitNum(item.price)}}</text>
+                </view>
+
+              </view>
+            </view>
+          </view>
+          <!-- <block>
+          <template is="product-invoice" data="{{productItem:item.goods}}"></template>
+        </block> -->
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 全选  下一步 -->
+  <view class='next-step'>
+    <!-- <view class='allSelect'>
+    <image src='{{selectAllStatus?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' class='select-icon' catchtap='selectAll' style='margin-right:10rpx;'></image>
+    <text class='color-222 ft-30'>全选</text>
+  </view> -->
+    <view class='next-step-btn ft-32 color-FFF' bindtap='nextStep'>下一步</view>
+  </view>
+</block>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无订单列表</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>
+<!-- <view class="btn-area">
+  <button type="primary" bindtap="chooseInvoiceTitle">获取发票抬头</button>
+</view> -->

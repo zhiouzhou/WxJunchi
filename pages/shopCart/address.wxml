@@ -1,0 +1,34 @@
+<!--pages/shopCart/address.wxml-->
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="18" bindcontroltap="controltap" markers="{{markers}}" controls="{{controls}}" bindmarkertap="markertap" bindregionchange="regionChange" show-location style="width: 100%; height: 300px;">
+
+  <cover-image src='/assets/image/address_.png' class='address_icon' bindtap='clickcontrol'></cover-image>
+</map>
+<view class='search'>
+  <input placeholder='请输入城市名' class='search-input ft-32 color-333' bindinput='searchValue'></input>
+  <view class=' ft-32 color-333 search_button' catchtap='searchStore'>搜索</view>
+</view>
+<view wx:if="{{!isEmpty}}">
+  <view class='current' wx:if="{{addressInfo}}">
+    <view class='address-info-current'>
+      <text class='ft-32 color-333'>{{addressInfo.stationName}}</text>
+      <text class='ft-26 color-333'>{{addressInfo.hostName}}  {{addressInfo.contactWay}}</text>
+      <text class='ft-26 color-84'>{{addressInfo.stationLocation}}</text>
+    </view>
+    <view class=' ft-32 color-333 ensure' catchtap='{{!buttonClicked?"ensure":""}}'>确定</view>
+  </view>
+  <view class='listData'>
+    <view wx:for="{{listData}}" wx:key="{{item.id}}" class='address-info' bindtap='selectAddress' data-index="{{index}}" data-id="{{item.id}}">
+      <view class='address'>
+        <text class='ft-32 color-333' style='padding-bottom:20rpx;'>{{item.stationName}}</text>
+        <text class='ft-26 color-84'>{{item.stationLocation}}</text>
+      </view>
+      <image src='/assets/image/ic_gouwuchegouxuan@2x.png' class='select-icon' wx:if="{{index==selectIndex}}"></image>
+    </view>
+  </view>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>附近暂无门店</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>

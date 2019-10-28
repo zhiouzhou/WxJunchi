@@ -1,0 +1,75 @@
+<!--pages/user/orders/applyService.wxml-->
+<!-- 用户信息 -->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='userInfo'>
+  <image class="head-pic" src='{{userInfo.headPic?userInfo.headPic:"/assets/image/ic-touxiang@2x.png"}}'></image>
+  <view class='user-name'>
+    <!-- <text class='ft-32 color-222'>联系人：{{userInfo.nickname}}</text> -->
+    <view class='mobile'>
+      <view style='display:flex;align-items:center;flex:1'>
+        <text class='ft-32 color-222'>联系人：</text>
+        <text class='ft-32 color-84' wx:if="{{!editNicknameStatus}}">{{userInfo.nickname}}</text>
+        <input placeholder='请输入联系人' class='ft-32 color-333' bindinput='onNickname' value='{{userInfo.nickname}}' wx:if="{{editNicknameStatus}}" style='flex:1'></input>
+      </view>
+      <view class='ft-30 color-2b' catchtap='editNickname' style='display:inline-block;margin-left:12rpx;'>{{!editNicknameStatus?'修改':"完成"}}</view>
+
+    </view>
+    <view class='mobile'>
+      <view style='display:flex;align-items:center;flex:1'>
+        <text class='ft-32 color-222'>联系电话：</text>
+        <text class='ft-32 color-84' wx:if="{{!editNicknameStatus}}">{{userInfo.mobile}}</text>
+        <input placeholder='请输入手机号' maxlength='11' class='ft-32 color-333' bindinput='onMobile' value='{{userInfo.mobile}}' wx:if="{{editNicknameStatus}}" style='flex:1'></input>
+      </view>
+
+      <!-- <view class='ft-30 color-2b' catchtap='editMobile' style='display:inline-block;margin-left:12rpx;'>{{!editMobileStatus?'修改':"完成"}}</view> -->
+
+    </view>
+  </view>
+</view>
+<!-- 订单信息 -->
+<view class='orderInfo'>
+  <view class='ft-30 color-333'>订单号：{{orderInfo.orderNo}}</view>
+  <view class='ft-30 color-333'>产品型号：{{orderInfo.goods[0].goodsModel}}</view>
+  <view class='ft-30 color-333'>产品名称：{{orderInfo.goods[0].goodsName}}</view>
+  <view class='ft-30 color-333 driverInfo'>我的车辆信息：
+    <image src='{{driverLicense}}' class='license-pic'></image>
+  </view>
+</view>
+<!-- 选择门店 -->
+<view style='position:relative'>
+  <view class='select-address' catchtap='getCenterLocation'>
+    <!-- 未选择门店显示的内容 -->
+    <view class="address" wx:if="{{!addressInfo.stationName}}">
+      <image src='/assets/image/ic-shouhuo@2x.png' class='address-icon'></image>
+      <text class='ft-30 color-222'>请选择维修门店</text>
+    </view>
+    <!-- 已选择门店显示的内容 -->
+    <view wx:else class='ft-32'>{{addressInfo.stationName}}</view>
+    <!-- <image src='/assets/image/ic_youjiantou_da@2x.png' class='jiantou-icon'></image> -->
+    <view class='sortSelect ft-30 color-333' catchtap='sortSelect'>快速选择</view>
+    <image src='/assets/image/letter.png' class='line-image'></image>
+  </view>
+</view>
+<!-- 选择维修日期 -->
+<view class='addReceiveAddress'>
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange">
+      <view class="picker ft-30 color-333">请选择维修日期: {{date}}</view>
+    </picker>
+    <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon'></image>
+  </view>
+</view>
+<!-- 选择时间 -->
+<view class='addReceiveAddress'>
+  <view class="section">
+    <picker mode="time" value="{{time}}" start="{{startTime}}" end="{{endTime}}" bindchange="bindTimeChange">
+      <view class="picker ft-30 color-333">请选择维修时间：{{time}}</view>
+    </picker>
+    <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon'></image>
+  </view>
+</view>
+<!-- 空标签 -->
+<view class="empty-view"></view>
+<!-- 确定 -->
+<view class="ensure ft-32 color-FFF" hover-class='hover_class' bindtap="ensure">确定</view>

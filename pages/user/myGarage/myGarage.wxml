@@ -1,0 +1,34 @@
+<!--pages/user/myGarage/myGarage.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view scroll-y style='height:{{windowHeight}}' bindscrolltolower="lower" wx:if="{{!isEmpty}}">
+  <block wx:for="{{garageList}}">
+    <view class='garage-list' catchtap='selectGarage' data-garage-item = "{{item}}">
+      <view class='carInfo'>
+        <text class='ft-32 color-84'>车辆名称</text>
+        <text class='ft-32 color-222'>{{item.name}}</text>
+      </view>
+      <view class='drive-license'>
+        <text class='ft-32 color-84'>机动车行驶证</text>
+        <image src='{{item.url}}' class='license-img'></image>
+      </view>
+      <view class="edit-garage">
+        <!-- <view class='default-garage'><image src='/assets/image/ic_gouwuchegouxuan@2x.png' class='default-icon'></image><text class='ft-30 color-1e'>设为默认车辆</text></view> -->
+        <view class='edit-btn'>
+          <view class='ft-28 color-1e' bindtap='addGarage' data-page-type="edit" data-garage-item="{{item}}">编辑</view>
+          <view class='ft-28 color-1e' bindtap='delete' data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty'  wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <view class='select-btn ft-26' bindtap='addGarage'  data-page-type="add">添加车辆</view>
+</view>
+
+<view style='height:88rpx;'></view>
+<!-- 新增车辆信息 -->
+<view class='add-garage-info ft-32 color-FFF' bindtap='addGarage' hover-class='hover_class'  data-page-type="add">新增车辆信息</view>

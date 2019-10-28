@@ -1,0 +1,330 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"coverView": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"enhance": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx18e562e65420bef4",
+	"projectname": "junchi2-WX",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "productDetail",
+					"pathName": "pages/product/productDetail",
+					"query": "scene=inviter%3D${this.data.memberId}&productNo=60a695ca486a403794fd10536c662703&productItem=\"{no: \\\"60a695ca486a403794fd10536c662703\\\", name: \\\"（测试品）智能辅助刹车安全系统-（智睿型）\\\", model: \\\"JK-IBSS-66A-1\\\",…}\\ncurrentPrice: 1\\ndetailImgs: [{id: 583, createdBy: \\\"111111111\\\", lastModifiedBy: \\\"111111111\\\",…}]\\ndiscount: 0\\nfavorableCount: 1\\ngoodsImg: \\\"https://obj.jcstauto.com/7585198982fd4b1da8cf83980d816c2b\\\"\\nmodel: \\\"JK-IBSS-66A-1\\\"\\nname: \\\"（测试品）智能辅助刹车安全系统-（智睿型）\\\"\\nno: \\\"60a695ca486a403794fd10536c662703\\\"\\noriginPrice: 1680000\\nprofit: {upper1LevelProfit: 58000, upper2LevelProfit: 33000, techEarning: 30000, stationEarning: 50000}\\nreviewCount: 0\\nreviewScore: 5\\nsalesVolume: 30\\nsort: 1\\nstatus: \\\"NORMAL\\\"\\nstock: 962\\nswiperImgs: [{id: 154, createdBy: \\\"111111111\\\", lastModifiedBy: \\\"111111111\\\",…}]}\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shopCart",
+					"pathName": "pages/shopCart/shopCart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "myOrder",
+					"pathName": "pages/user/orders/myOrder",
+					"query": "bundleData=",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "account",
+					"pathName": "pages/user/accountManage/accoutManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "addAddress",
+					"pathName": "pages/user/receiveAddress/addReceiveAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "editData",
+					"pathName": "pages/user/accountManage/editData",
+					"query": "productId=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myBankCard",
+					"pathName": "pages/user/myBankCard/myBankCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "message",
+					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "complaint",
+					"pathName": "pages/user/complaint",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "homepage",
+					"pathName": "pages/homePage/homePage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orderDetail",
+					"pathName": "pages/user/orders/orderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ealuation",
+					"pathName": "pages/user/orders/ealuation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "invoicing",
+					"pathName": "pages/user/invoiceManage/invoicing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "invoicingToOrder",
+					"pathName": "pages/user/invoiceManage/invoiceAccordToOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "detail",
+					"pathName": "pages/user/invoiceManage/invoiceHistory/invoiceDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "add",
+					"pathName": "pages/user/invoiceManage/infoSetUp/invoiceInfo/addInvoiceInfo",
+					"query": "pageType=0",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "11",
+					"pathName": "pages/login/codeInput",
+					"query": "mobile=13659396686&codeId=dab67441786343e3884445eb9137fadd",
+					"scene": null
+				},
+				{
+					"id": 23,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "homepage",
+					"pathName": "pages/homePage/homePage",
+					"query": "scene=inviter%3D111111111",
+					"scene": 1047
+				},
+				{
+					"id": -1,
+					"name": "accountManage",
+					"pathName": "pages/user/accountManage/accoutManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "receiveAddress",
+					"pathName": "pages/user/receiveAddress/receiveAddress",
+					"query": "userInfo={\"id\":12,\"gmtCreate\":\"2019-04-17 15:02:28\",\"gmtModified\":\"2019-04-18 09:33:00\",\"mobile\":\"13659396686\",\"memberId\":\"387455061\",\"hasPassword\":false,\"nickname\":\"zhoulizhen\",\"subordinates\":[]}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "addreceiveAddress",
+					"pathName": "pages/user/receiveAddress/addReceiveAddress",
+					"query": "userInfo={\"id\":12,\"gmtCreate\":\"2019-04-17 15:02:28\",\"gmtModified\":\"2019-04-18 09:33:00\",\"mobile\":\"13659396686\",\"memberId\":\"387455061\",\"hasPassword\":false,\"nickname\":\"zhoulizhen\",\"subordinates\":[]}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "email",
+					"pathName": "pages/user/invoiceManage/infoSetUp/emailList/emailList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "findPassword",
+					"pathName": "pages/login/findPassword",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "place",
+					"pathName": "pages/shopCart/placeOrder",
+					"query": "productList=[{\"id\":18,\"goods\":{\"id\":6,\"no\":\"11111111116\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":23,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[{\"id\":17,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":18,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":19,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"detailImgs\":[{\"id\":12,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":13,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":1,\"price\":10000,\"memberId\":\"387455061\",\"select\":true},{\"id\":19,\"goods\":{\"id\":10,\"no\":\"111119111111\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":23,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[],\"detailImgs\":[{\"id\":19,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":20,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":21,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":1,\"price\":10000,\"memberId\":\"387455061\",\"select\":true},{\"id\":20,\"goods\":{\"id\":1,\"no\":\"11111111111\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":5,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[{\"id\":1,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":2,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":3,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"detailImgs\":[{\"id\":1,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":2,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":12,\"price\":10000,\"memberId\":\"387455061\",\"select\":true},{\"id\":21,\"goods\":{\"id\":3,\"no\":\"11111111113\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":21,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[{\"id\":7,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":8,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":9,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":10,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"detailImgs\":[{\"id\":5,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":3,\"price\":10000,\"memberId\":\"387455061\",\"select\":true},{\"id\":22,\"goods\":{\"id\":4,\"no\":\"11111111411\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":8,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[{\"id\":11,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":12,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":13,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"detailImgs\":[{\"id\":6,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":7,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":1,\"price\":10000,\"memberId\":\"387455061\",\"select\":true},{\"id\":23,\"goods\":{\"id\":5,\"no\":\"11111111151\",\"name\":\"aaa\",\"model\":\"11233YYxxss\",\"originPrice\":200000,\"currentPrice\":10000,\"discount\":10.1,\"status\":\"NORMAL\",\"stock\":21,\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"swiperImgs\":[{\"id\":14,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":15,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":16,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"detailImgs\":[{\"id\":8,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":9,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":10,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0},{\"id\":11,\"url\":\"https://jcimg.tieyan.top/00b00abff08947b8aee8d7728feba261\",\"sort\":0}],\"salesVolume\":0,\"reviewScore\":0,\"reviewCount\":0,\"favorableCount\":0,\"sort\":1},\"count\":1,\"price\":10000,\"memberId\":\"387455061\",\"select\":true}]&selectIdArr=[18,19,20,21,22,23]&pageType=shopCart&count=19&totalPrice=60000",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "detail@",
+					"pathName": "pages/product/productDetail",
+					"query": "productNo=11111111111",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "install",
+					"pathName": "pages/user/orders/productInstall",
+					"query": "orderItem={\"id\":294,\"gmtCreate\":\"2019-05-22 15:57:17\",\"gmtModified\":\"2019-05-22 15:57:23\",\"createdBy\":\"597772287\",\"lastModifiedBy\":\"system\",\"orderNo\":\"20190522155716076689\",\"payWxMiniOpenid\":\"o1fC45dvP_2mxmKD1skHZd1wGFuE\",\"prepayId\":\"wx2215571776934747e5415c683829896820\",\"memberId\":\"597772287\",\"amountPaid\":1,\"price\":1,\"goods\":[{\"id\":308,\"createdBy\":\"597772287\",\"lastModifiedBy\":\"597772287\",\"goodsName\":\"智能辅助刹车安全系统-（豪华型）测试\",\"goodsModel\":\"11233YYxxss1\",\"goodsImg\":\"https://jcimg.tieyan.top//image/goods/%E4%B9%98%E7%94%A8%E8%BD%A6%E5%B0%8F.jpg\",\"goodsPrice\":1,\"originPrice\":1,\"goodsNo\":\"11111111111\",\"count\":1}],\"status\":\"NO_RESERVE\",\"invoiceStatus\":\"NO\",\"expireTime\":\"2019-05-22 16:57:17\",\"expireIn\":\"00:00:00\",\"formId\":\"b52713a4adcb44979f42420b0d456d3c\",\"maintenanceStatus\":\"NO\"}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "evaluate",
+					"pathName": "pages/product/evaluateList",
+					"query": "goodsNo=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "message",
+					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "invoice",
+					"pathName": "pages/user/invoiceManage/invoicing",
+					"query": "orderNo=00201904201742516505168315755157",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "invoiceHistory",
+					"pathName": "pages/user/invoiceManage/invoiceHistory/invoiceHistory",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请维修",
+					"pathName": "pages/user/orders/applyService",
+					"query": "orderInfo={\"id\":119,\"gmtCreate\":\"2019-05-07 11:21:58\",\"gmtModified\":\"2019-05-07 12:21:59\",\"orderNo\":\"00201905071121587590421010925024\",\"memberId\":\"387455061\",\"amountPaid\":1000,\"price\":1,\"goods\":[{\"id\":122,\"goodsName\":\"aaa\",\"goodsModel\":\"11233YYxxss\",\"goodsImg\":\"https://jcimg.tieyan.top/017989a0f7e04f93a454ee2533a1915f\",\"goodsPrice\":1,\"goodsNo\":\"11111111111\",\"count\":1}],\"status\":\"FINISH\",\"invoiceStatus\":\"ING\",\"expireTime\":\"2019-05-07 12:21:58\",\"expireIn\":\"00:00:00\"}",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/shopCart/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推广助手",
+					"pathName": "pages/homePage/helper",
+					"query": "scene=%7B%22inviter%22%3A333333%7D",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "scene=inviter%3D234567898",
+					"scene": 1047
+				},
+				{
+					"id": -1,
+					"name": "实名认证",
+					"pathName": "pages/user/accountManage/identification",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约门店",
+					"pathName": "pages/user/orders/productInstall",
+					"query": "orderItem={\"id\":366,\"gmtCreate\":\"2019-06-17 11:49:28\",\"gmtModified\":\"2019-06-17 14:19:08\",\"createdBy\":\"129439919\",\"lastModifiedBy\":\"error\",\"orderNo\":\"20190617114927906687\",\"payWxMiniOpenid\":\"o1fC45dvP_2mxmKD1skHZd1wGFuE\",\"prepayId\":\"wx17114928715832762b692a471469438900\",\"memberId\":\"129439919\",\"amountPaid\":1,\"price\":1,\"goods\":[{\"id\":381,\"createdBy\":\"129439919\",\"lastModifiedBy\":\"129439919\",\"goodsName\":\"智能辅助刹车安全系统-（豪华型）\",\"goodsModel\":\"JK-IBSS-66A-2\",\"goodsImg\":\"https://jcimg.tieyan.top//image/goods/%E4%B9%98%E7%94%A8%E8%BD%A6%E5%B0%8F.jpg\",\"goodsPrice\":1,\"originPrice\":1980000,\"goodsNo\":\"11111111111\",\"count\":1}],\"status\":\"NO_RESERVE\",\"invoiceStatus\":\"NO\",\"expireTime\":\"2019-06-17 12:49:28\",\"expireIn\":\"00:00:00\",\"formId\":\"the formId is a mock one\",\"maintenanceStatus\":\"NO\",\"sharedProfit\":false}",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "提现",
+					"pathName": "pages/user/myWallet/withdraw",
+					"query": "balance=0",
+					"scene": null
+				}
+			]
+		}
+	}
+}

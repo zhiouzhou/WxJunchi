@@ -1,0 +1,26 @@
+<template name="receiveAddress">
+  <view class='address-info' bindtap="addEmail" data-tag = 'addEmail' data-page-type="1">
+    <text class='ft-30 color-222'>773852250@163.com</text>
+  </view>
+  <view class='set-default-buttom'>
+    <view class='each-contain' data-address="{{item}}" bindtap='setDefault'>
+      <image wx:if="{{item.defaultAddress&&item.state ==1}}" style='width:44rpx;height:44rpx;{{item.returnCount<=0?"opacity:0.4":""}}' src='/assets/image/ic_gouwuchegouxuan@2x.png' mode='aspectFit' />
+      <image wx:if="{{!item.defaultAddress&&item.state ==1}}" style='width:44rpx;height:44rpx;{{item.returnCount<=0?"opacity:0.4":""}}' src='/assets/image/ic_gouwucheweigouxuan@2x.png' mode='aspectFit' />
+      <text wx:if="{{item.state ==1}}" class='ft-28 {{item.state==2||item.state==3?"color-BDBDBD":"color-666"}}' style='margin-left:8rpx'>设为默认邮箱</text>
+    </view>
+    <!-- wx:if="{{item.canModify}}" 是否编辑  后台反数据 -->
+    <view class='each-contain'>
+      <!-- wx:if="{{!item.defaultAddress&&item.canModify}}" -->
+      <view class='button-grey' data-email="{{item}}" bindtap='edit' data-tag='addEmail' data-page-type='1'>编辑</view>
+      <view class='button-grey' data-address="{{item}}" bindtap='deleteAddress'>删除</view>
+    </view>
+  </view>
+</template>
+<view class='address-content' >
+  <block wx:for="{{emailList}}" wx:key="{{item.addressId}}">
+    <template is="receiveAddress" data="{{item}}" />
+  </block>
+</view>
+<view class='bottom-buttom' catchtap='addEmail' data-tag = 'addEmail' data-page-type="0">
+  <text class='ft-34' style='margin-left:16rpx'>新增常用电子邮箱</text>
+</view>

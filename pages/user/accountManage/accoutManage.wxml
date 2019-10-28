@@ -1,0 +1,113 @@
+<!--pages/user/accountManage/accoutManage.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='account-info'>
+  <view class='account-info-content'>
+    <view class='accont-name'>
+      <image src='{{userInfo.headPic?userInfo.headPic:"/assets/image/ic-touxiang@2x.png"}}' class='account-img'></image>
+      <view class='account-name-number'>
+        <text class='color-333 ft-36'>{{userInfo.nickname}}</text>
+        <text class='color-84 ft-26'>会员号：{{userInfo.memberId}}</text>
+      </view>
+    </view>
+    <view class="edit-button" catchtap='navigitePage' data-tag='editData' data-user-info="{{userInfo}}">修改资料</view>
+  </view>
+  <!-- 账户显示 -->
+  <view class='account-manage-item'>
+    <view>
+      <view class="color-84 ft-24 item-title">注册时间</view>
+      <view class='ft-34 color-222'>{{userInfo.gmtCreate}}</view>
+    </view>
+  </view>
+  <view class='account-manage-item'>
+    <view>
+      <view class="color-84 ft-24 item-title">绑定手机号</view>
+      <view class='ft-34 color-222' wx:if="{{userInfo.mobile}}">{{mobileStatus?userInfo.mobile:hideMobile}}</view>
+      <view class='ft-34 color-222' wx:else>暂无绑定手机号</view>
+    </view>
+    <view class='show-hide' catchtap='checkMobileStatus' wx:if="{{userInfo.mobile}}">{{!mobileStatus?'显示':'隐藏'}}</view>
+  </view>
+  <view class='account-manage-item' wx:if="{{userInfo.email}}">
+    <view>
+      <view class="color-84 ft-24 item-title">邮箱</view>
+      <view class='ft-34 color-222'>{{emailStatus?userInfo.email:hideEmail}}</view>
+    </view>
+    <view class='show-hide' catchtap='checkEmailStatus'>{{emailStatus?'隐藏':'显示'}}</view>
+  </view>
+  <view class='account-manage-item'>
+    <view>
+      <view class="color-84 ft-24 item-title">推荐人</view>
+      <view class='ft-34 color-222'>
+        <block wx:if="{{userInfo.superior}}">
+          <!-- <text>{{userInfo.superior.nickname}}</text> -->
+          <text>{{userInfo.superior.memberId}}</text>
+        </block>
+        <text wx:else>暂无推荐人</text>
+      </view>
+    </view>
+    <view class='show-hide' catchtap='setSuperior'>设置</view>
+  </view>
+  <view class='account-manage-item' style='border:none;' catchtap='navigitePage' data-tag='subordinate' data-user-info='{{userInfo.subordinates}}'>
+    <view>
+      <view class="color-84 ft-24 item-title">下级人员
+        <text wx:if="{{userInfo.subordinates.length==0}}">（发展下级人员需先设置推荐人）</text>
+      </view>
+      <view class='ft-34 color-222' wx:if="{{userInfo.subordinates.length!=0}}">{{userInfo.subordinates.length}}名</view>
+      <view class='ft-34 color-222' wx:if="{{userInfo.subordinates.length==0}}">暂无下级人员</view>
+    </view>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+</view>
+
+<!-- 实名认证 -->
+<!-- {{userInfo.idCardStatus==1||userInfo.idCardStatus==3?"noJump":"navigitePage"}} -->
+<view class='setPassword' bindtap='{{userInfo.idCardStatus==1||userInfo.idCardStatus==3?"noJump":"navigitePage"}}' data-tag='identification'>
+  <view style='display:flex;align-items:center;'>
+    <text class='ft-32 color-222'>实名认证</text>
+    <!-- ic_un_certificated.png -->
+    <!-- 3已认证  1 认证失败 为空时未认证  其他为认证失败 -->
+    <image src='{{userInfo.idCardStatus==3?"/assets/image/ic_certified.png":userInfo.idCardStatus==""?"/assets/image/ic_un_certificated.png":userInfo.idCardStatus==1?"/assets/image/ic_in_certified.png":"/assets/image/ic_un_certificated.png"}}' class='certified_icon'></image>
+  </view>
+
+  <view style='display:flex;align-items:center' wx:if="{{!userInfo.name||!userInfo.idCard}}">
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+</view>
+
+<!-- 设置登录密码 -->
+<view class='setPassword' bindtap='navigitePage' data-tag='setLoginPsw' data-has-password="{{userInfo.hasPassword}}">
+  <text class='ft-32 color-222'>{{userInfo.hasPassword?'修改登录密码':'设置登录密码'}}</text>
+  <view style='display:flex;align-items:center'>
+    <text class='ft-32 color-222' wx:if="{{!userInfo.hasPassword}}">未设置</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+
+  </view>
+</view>
+
+<!-- 设置支付密码 -->
+<view class='setPassword' bindtap='navigitePage' data-tag='setPayPass' data>
+  <text class='ft-32 color-222'>{{userInfo.hasPayPass?'修改支付密码':'设置支付密码'}}</text>
+  <view style='display:flex;align-items:center'>
+    <text class='ft-32 color-222' wx:if="{{!userInfo.hasPayPass}}">未设置</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+</view>
+
+<!-- 管理信息 -->
+<view class='manage'>
+  <view class='manage-title' catchtap='navigitePage' data-tag='receiveAddress' data-user-info="{{userInfo}}">
+    <text>管理收货地址</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+  <view class='manage-title' catchtap='navigitePage' data-tag='myBankCard'>
+    <text>管理银行卡</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+  <view class='manage-title' style='border:none' catchtap='navigitePage' data-tag='myGarage'>
+    <text>我的车库</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+</view>
+
+<!-- 退出登录按钮 -->
+<view class='signOut' catchtap='signOut' hover-class='hover_class'>退出登录</view>

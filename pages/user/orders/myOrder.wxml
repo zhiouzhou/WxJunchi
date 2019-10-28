@@ -1,0 +1,97 @@
+<!-- pages/user/orders/myOrder.wxml -->
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<import src="../../../components/product/product.wxml" />
+<view class='classification ft-28 color-666'>
+  <view class='{{status==""?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="">
+    <text>全部</text>
+    <view class='line' wx:if="{{status==''}}"></view>
+  </view>
+  <view class='{{status=="NO_PAY"?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="NO_PAY">
+    <text>待付款</text>
+    <view class='line' wx:if="{{status=='NO_PAY'}}"></view>
+  </view>
+  <view class='{{status=="NO_RESERVE"?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="NO_RESERVE" data-state1="USER_RESERVE">
+    <text>待指派</text>
+    <view class='line' wx:if="{{status=='NO_RESERVE'||state1=='USER_RESERVE'}}"></view>
+  </view>
+  <view class='{{status=="NO_INSTALL"?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="NO_INSTALL">
+    <text>待安装</text>
+    <view class='line' wx:if="{{status=='NO_INSTALL'}}"></view>
+  </view>
+  <!-- <view class='{{status=="NO_COMMENT"?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="NO_COMMENT">
+    <text>待评论</text>
+    <view class='line' wx:if="{{status=='NO_COMMENT'}}"></view>
+  </view> -->
+  <view class='{{status=="FINISH"?"orderType_one":"orderType"}}' catchtap='checkStatus' data-state="FINISH" data-state1="NO_COMMENT">
+    <text>已完成</text>
+    <view class='line' wx:if="{{status=='FINISH'||state1=='NO_COMMENT'}}"></view>
+  </view>
+</view>
+<!-- 订单列表 -->
+<view class='orderList' scroll-y style='height:{{windowHeight}}px' bindscrolltolower="lower" wx:if="{{!isEmpty}}">
+  <block wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class='order-list-info'>
+      <view catchtap='gotoOrderList' data-order-no="{{item.orderNo}}" data-order-info="{{item}}">
+        <view class='order-time'>
+          <text class='ft-24 color-84'>下单时间：{{item.gmtCreate}}</text>
+          <!-- 还有个已完成按钮 -->
+          <text class='ft-26 color-2b'>{{item.status=='NO_PAY'?'待付款':item.status=='NO_RESERVE'?'待指派':item.status=='USER_RESERVE'?'已指派':item.status=='NO_INSTALL'?'待安装':item.status=='NO_COMMENT'?'待评论':item.status=='FINISH'?'已完成':item.status=='CANCEL'?'已取消':item.status == 'TIMEOUT'?'交易已关闭':item.status=='REFUNDED'?'已退款':item.status=='REFUNDING'?'退款中':''}}</text>
+        </view>
+        <!-- 商品信息 -->
+        <block>
+          <template is="product" data="{{productItem:item.goods}}"></template>
+        </block>
+        <view class='total-price'>
+          <text class='ft-26 color-2b'>总价：</text>
+          <text class='color-2b ft-22'>￥</text>
+          <text class='ft-44 color-2b'>{{item.amountPaid?WxsUtil.splitNum(item.amountPaid):WxsUtil.splitNum(item.price)}}</text>
+        </view>
+      </view>
+
+      <view class='{{item.status=="NO_PAY"||item.status=="TIMEOUT"||item.maintenanceStatus=="ING"?"order-button1":"order-button"}}'>
+        <view class='color-2b ft-26' wx:if="{{item.status=='NO_PAY'||item.status=='TIMEOUT'}}">
+          <text class='color-2b ft-26' wx:if="{{item.status=='NO_PAY'}}">
+            将在{{item.expireIn}}后关闭交易
+          </text>
+          <text class='color-2b ft-26' wx:if="{{item.status=='TIMEOUT'}}">交易超时</text>
+        </view>
+        <view class='color-2b ft-26' wx:if="{{(item.status=='FINISH'||item.status=='NO_COMMENT')&&item.maintenanceStatus=='ING'}}">
+          <text>申请维修中</text>
+        </view>
+        <form bindsubmit='cancelOrder' report-submit='true' data-order-no="{{item.orderNo}}">
+          <button class='gray-border' formType="submit" wx:if="{{item.status=='NO_PAY'}}">
+            取消订单
+          </button>
+        </form>
+        <form bindsubmit='refund' report-submit='true' data-order-no="{{item.orderNo}}">
+          <button class='gray-border' formType="submit" wx:if="{{item.status=='NO_RESERVE'}}">
+            退款
+          </button>
+        </form>
+        <!-- <view class='gray-border' wx:if="{{item.status=='NO_RESERVE'}}" catchtap='install' data-order-item="{{item}}">
+          预约安装
+        </view> -->
+        <form bindsubmit='payMent' report-submit='true' data-order-no="{{item.orderNo}}">
+          <view class='red-border' wx:if="{{item.status=='NO_PAY'}}" catchtap='payMent'  data-product-info='{{item.goods[0]}}' data-count='{{item.goods[0].count}}' data-page-type='detail' data-total-price="{{item.price}}">立即支付</view>
+        </form>
+        <!-- <view class='red-border' wx:if="{{item.status=='NO_INSTALL'}}">确认安装</view> -->
+        <view class='gray-border' wx:if="{{item.status=='NO_COMMENT'}}" catchtap='gotoEaluation' data-order-no="{{item.orderNo}}" data-goods-image="{{item.goods[0].goodsImg}}">
+          立即评价
+        </view>
+        <view class='gray-border' wx:if="{{(item.status=='FINISH'||item.status=='NO_COMMENT')&&item.maintenanceStatus=='NO'}}" catchtap='applyService' data-order-info="{{item}}">
+          申请维修
+        </view>
+        <view class='red-border' wx:if="{{item.status=='FINISH'}}" bindtap='againBuy' data-product-item="{{item.goods[0]}}" data-product-no='{{item.goods[0].goodsNo}}'>再次购买</view>
+        <!-- <view class='red-border' wx:if="{{item.status=='NO_INSTALL'}}">查看进度</view> -->
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无订单列表</text>
+  <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view>
+</view>

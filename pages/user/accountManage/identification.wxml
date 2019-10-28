@@ -1,0 +1,32 @@
+<!--pages/user/accountManage/identification.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='ft-40 title'>请拍摄并上传你的身份证照片</view>
+<view class='ft-32 title_1'>拍摄身份证要求：</view>
+<view class='tips'>
+  <view class='ft-26 color-98'>大陆公民持有的本人有效二代身份证</view>
+  <text class='ft-26 color-98'>拍摄时确保身份证</text>
+  <text class='ft-26 color-2b'>边框完整，字体清晰，亮度均匀</text>
+</view>
+<view class='idCard_content'>
+  <view class='idCard' catchtap='shotFront' data-shot-type='front'>
+    <image src="{{idCardUrl?idCardUrl:'/assets/image/idcard_2.png'}}" class='card_1'></image>
+    <view class='ft-32 color-FFF card_title'>拍摄正面</view>
+  </view>
+  <view class='idCard' catchtap='shotFront' data-shot-type='back'>
+    <image src='{{idCardBackUrl?idCardBackUrl:"/assets/image/idcard_1.png"}}' class='card_1'></image>
+    <view class='ft-32 color-FFF card_title'>拍摄背面</view>
+  </view>
+</view>
+<view class='warn-tips ft-28 color-FFF'>
+  为保证您的合法权益,请确保姓名、身份证号正确!
+</view>
+<view class='info-input'>
+  <text class='ft-28 color-333'>真实姓名</text>
+  <input placeholder='请输入真实姓名' value='{{name}}' bindinput='nameInput' class='ft-32 idCard_input'></input>
+</view>
+<view class='info-input'>
+  <text class='ft-28 color-333'>身份证号</text>
+  <input placeholder='请输入身份证号' value='{{idCardNo}}' bindinput='idCardNoInput' class='ft-32 idCard_input'></input>
+</view>
+<view class='{{name&&idCardNo&&frontStatus&&backStatus&&idCardNo.length==18?"no_auth_button":"auth_button"}}' bindtap='authButton'>立即认证</view>

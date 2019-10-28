@@ -1,0 +1,59 @@
+/* pages/homePage/industry.wxss */
+
+.message {
+  margin: 24rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  padding: 24rpx;
+}
+
+.message-image {
+  width: 654rpx;
+  height: 318rpx;
+  background: #eaeaea;
+  margin: 30rpx 0;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.empty-icon {
+  width: 248rpx;
+  height: 248rpx;
+  margin-bottom: 60rpx;
+}
+
+.empty-tip {
+  color: #656c78;
+}
+
+.select-btn {
+  color: #656c78;
+  background: #fff;
+  border: 2rpx solid #a9b2bd;
+  width: 176rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+.check-ic {
+  width: 18rpx;
+  height: 18rpx;
+  margin-left:8rpx;
+
+}
+
+.check-detail {
+  padding-top: 24rpx;
+  border-top: 2rpx solid #eaeaea;
+  display: flex;
+  align-items:center;
+  justify-content: flex-end;
+}

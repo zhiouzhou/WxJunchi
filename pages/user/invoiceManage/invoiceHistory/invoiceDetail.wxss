@@ -1,0 +1,25 @@
+/* pages/user/invoiceManage/invoiceHistory/invoiceDetail.wxss */
+.invoice-state{
+  background: #fff;
+  padding: 36rpx 24rpx;
+}
+
+.info-title{
+  padding: 26rpx 24rpx;
+  font-size: 30rpx;
+  color: #848484;
+}
+.label{
+  display: block;
+  padding-bottom: 24rpx;
+}
+.info-content{
+  padding:34rpx 24rpx;
+  background: #fff;
+}
+.address{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}

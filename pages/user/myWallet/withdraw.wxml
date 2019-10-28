@@ -1,0 +1,59 @@
+<!--pages/user/myWallet/withdraw.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<view class='withdraw'>
+  <view class='bankcard' catchtap='selectCard'>
+    <view class='ft-28 color-333'>到账银行卡</view>
+    <view class='bankCard-info'>
+      <text class='ft-28 color-477AAC' wx:if="{{bankCardInfo}}" style='padding-bottom:12rpx;'>{{bankCardInfo.bank}}({{bankCardInfo.accountNo}})</text>
+      <text class='ft-28 color-477AAC' wx:if="{{!bankCardInfo}}" style='padding-bottom:12rpx;'>请选择银行卡</text>
+      <!-- <text class='ft-28 color-84'>2小时内到账</text> -->
+    </view>
+  </view>
+  <view class='withdraeCount'>
+    <text class='ft-28 color-333'>提现金额</text>
+    <view class='count'>
+      <text class='ft-44 bold' style='margin-right:12rpx;'>￥</text>
+      <view class='input-fee'>
+        <input class='ft-44 bold' style='height:100%;' type='digit' bindinput='count' adjust-position="false" focus="true" value='{{fee}}'></input>
+      </view>
+
+    </view>
+    <view class='tip'>
+      <text class='ft-28 color-84'>当前零钱余额{{WxsUtil.splitNum(balance)}}元，</text>
+      <text class='ft-28 color-477AAC' bindtap='allWithdraw'>全部提现</text>
+    </view>
+    <view class='{{!fee||!bankCardInfo?"nowithdrawButton":"withdrawButton"}}' hover-class='{{fee?"hover_class":""}}' bindtap='withdraw'>提现</view>
+  </view>
+</view>
+
+
+
+<view class='dialog-container' hidden="{{hasUserInfo}}">
+
+  <!-- <text>{{hasUserInfo}}</text> -->
+  <view class='dialog-mask' bindtap="hideDialog"></view>
+
+  <view class='dialog-info'>
+    <image src='/assets/image/clear@cancel@2x.png' class='cancel' catchtap='cancel'></image>
+    <view class=''>请输入支付密码</view>
+
+    <view class='ft-30 color-333 walltTip'>余额提现</view>
+    <view class='ft-44 color-333 bold walltTip_count'>￥{{fee}}</view>
+    <view class='code-input-wrap' style='height:96rpx;'>
+      <!-- 输入框，个数 -->
+      <view class='code-frame-wrap'>
+        <block wx:for="{{codeNumFakeArr}}" wx:key="{{index}}">
+          <!-- 通过下标直接去payPass字符串中取值并展示出来 -->
+          <view class='code-frame color-333 ft-48' style='width:96rpx;height:96rpx; line-height:96rpx;border-color:{{index==payPass.length&&index!=0?"#e53935":""}};'>{{payPass[index]}}</view>
+        </block>
+      </view>
+      <input class='code-input' value='{{payPass}}' bindinput='onPassInput' maxlength='{{codeNumFakeArr.length}}' type='password' cursor-spacing='20' />
+    </view>
+    <!-- <view class='btn'>
+      <view>取消</view>
+      <view>确定</view>
+    </view> -->
+  </view>
+</view>

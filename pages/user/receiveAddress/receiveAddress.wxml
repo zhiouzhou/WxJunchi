@@ -1,0 +1,38 @@
+<!--pages/user/receiveAddress/receiveAddress.wxml-->
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<template name="receiveAddress">
+  <view class='address-info' bindtap='selectAddress' data-address-info="{{item}}">
+    <view class='user-state'>
+      <text class='ft-32 color-333'>{{item.receiverName}}</text>
+      <text class='ft-24 color-D91F2F'>{{item.receiverMobile}}</text>
+    </view>
+    <text class='ft-28 color-666' style='margin-top:24rpx'>{{item.province}}{{item.city}}{{item.district}}{{item.detailedAddress ? item.detailedAddress : ''}}</text>
+  </view>
+  <view class='set-default-buttom' style='{{!item.preferred?"justify-content:flex-end":""}}'>
+    <view class='each-contain' wx:if="{{item.preferred}}">
+      <!-- <image style='width:44rpx;height:44rpx;' src='/assets/image/ic_gouwuchegouxuan@2x.png' mode='aspectFit' /> -->
+      <text class='ft-28 color-222' style='margin-left:8rpx'>默认地址</text>
+    </view>
+    <!-- wx:if="{{item.canModify}}" 是否编辑  后台反数据 -->
+    <view class='each-contain'>
+      <!-- wx:if="{{!item.defaultAddress&&item.canModify}}" -->
+      <view class='button-grey' data-address="{{item}}" bindtap='edit' data-page-type="edit" data-tag='addReceiveAddress'>编辑</view>
+      <view class='button-grey' data-id="{{item.id}}" bindtap='deleteAddress'>删除</view>
+    </view>
+  </view>
+</template>
+<view class='address-content' wx:if="{{!isEmpty}}">
+  <block wx:for="{{addressList}}" wx:key="{{item.addressId}}">
+    <template is="receiveAddress" data="{{item}}" />
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty'  wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <view class='select-btn ft-26' bindtap='addReceiveAddress' data-tag='addReceiveAddress' data-page-type="add">添加收货地址</view>
+</view>
+<view class='bottom-buttom' catchtap='addReceiveAddress' hover-class='hover_class' data-tag='addReceiveAddress' data-page-type="add">
+  <text class='ft-34' style='margin-left:16rpx'>新增收货地址</text>
+</view>

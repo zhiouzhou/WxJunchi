@@ -1,0 +1,49 @@
+<!-- pages/user/orders/productInstall.wxml -->
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<!-- 选择安装门店 -->
+<view style='position:relative'>
+  <view class='select-address' catchtap='getCenterLocation'>
+    <!-- 未选择门店显示的内容 -->
+    <view class="address" wx:if="{{!addressInfo.stationName}}">
+      <image src='/assets/image/ic-shouhuo@2x.png' class='address-icon'></image>
+      <text class='ft-32 color-222'>请选择安装门店</text>
+    </view>
+    <!-- 已选择门店显示的内容 -->
+    <view wx:else class='ft-32'>{{addressInfo.stationName}}</view>
+    <image src='/assets/image/ic_youjiantou_da@2x.png' class='jiantou-icon'></image>
+    <image src='/assets/image/letter.png' class='line-image'></image>
+  </view>
+</view>
+<!-- 选择安装时间 -->
+<!-- 请选择安装日期 -->
+<view class='addReceiveAddress' >
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="{{startTime}}" bindchange="bindDateChange">
+      <view class="picker ft-32 color-333">请选择安装日期: {{date}}</view>
+    </picker>
+    <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon'></image>
+  </view>
+</view>
+<!-- 选择时间 -->
+<view class='addReceiveAddress' wx:if="{{addressInfo.stationName&&date}}">
+  <view class="section">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{timeArr}}" range-key="{{'startTime'}}">
+      <view class="picker ft-32 color-333">请选择到店时间：{{timeArr[index].startTime}}</view>
+    </picker>
+    <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon'></image>
+  </view>
+</view>
+<view class='ft-28 color-red' wx-if="{{timeArr&&timeArr.length!=0}}" style='padding-top:10px;color:#2c76e0;margin-left:40rpx;'>安装大概需要3个小时</view>
+<!-- 请选择车辆 -->
+<view class='select-address' catchtap='gotoGarage'>
+  <text class="ft-32 color-333" wx:if="{{!garageInfo.name}}">请选择车辆</text>
+  <text class="ft-32 color-333" wx:else>{{garageInfo.name}}</text>
+  <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon'></image>
+</view>
+<view class='select-address'>
+  <text class="ft-32 color-333">联系电话</text>
+  <input class='ft-32 color-222' style='text-align:right' placeholder='请输入联系方式' value='{{userPhone}}' bindinput="onMobile"></input>
+</view>
+<!-- 确定按钮 -->
+<view class="ensure ft-32 color-FFF" bindtap="ensure">确定</view>

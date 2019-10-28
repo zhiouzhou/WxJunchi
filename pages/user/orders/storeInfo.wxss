@@ -1,0 +1,19 @@
+/* pages/user/orders/storeInfo.wxss */
+.storeInfo{
+  background: #fff;
+    /* margin: 20rpx 20rpx 0; */
+    /* border-radius: 16rpx; */
+  
+}
+.select-address,.addReceiveAddress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24rpx;   
+    border-bottom: 2rpx solid #eaeaea;
+    position: relative
+  }
+  .select-icon{
+    width: 13rpx;
+    height: 24rpx;
+  }

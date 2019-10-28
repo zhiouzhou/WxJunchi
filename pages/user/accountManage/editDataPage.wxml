@@ -1,0 +1,46 @@
+<!--pages/user/accountManage/editDataPage.wxml-->
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view>
+  <!-- 修改昵称 -->
+  <block wx:if="{{pageType=='username'}}">
+    <view class='username'>
+      <input type='text' class='ft-32' bindinput='editUsername' placeholder='请输入新昵称'></input>
+    </view>
+  </block>
+
+  <!-- 修改手机号 -->
+  <block wx:elif="{{pageType=='mobile'}}">
+    
+    <!-- 新手机号码 -->
+    <view class='editMobile'>
+      <view class='editMobie-input'>
+        <input placeholder='请输入新手机号码' class='ft-32' maxlength='11' bindinput='onNewMobile'></input>
+        <view class='code-btn' bindtap='gainCode'>获取验证码</view>
+      </view>
+      <view class='editMobie-input'>
+        <input type='number' style='width:100%' bindinput='onNewCode' placeholder='请输入验证码' class='ft-32'></input>
+      </view>
+      <view class='editMobie-input'>
+        <input type='number' style='width:100%' bindinput='onPassword' placeholder='请输入密码' class='ft-32'></input>
+      </view>
+    </view>
+
+  </block>
+
+  <!-- 修改邮箱 -->
+  <block wx:else>
+    <view class='email'>
+      <input placeholder='请输入新邮箱' bindinput='onEmail' class='ft-32'></input>
+    </view>
+    <view class='code'>
+      <input placeholder='请输入验证码' bindinput='onCode' class='ft-32' value='{{emailCode}}'></input>
+      <view  class='code-btn' bindtap='getEmailCode' >获取验证码</view>
+    </view>
+
+  </block>
+
+</view>
+
+<!-- 确定修改按钮 -->
+<view class='{{buttonEnable==false?"unensureEdit":"ensureEdit"}}' hover-class='{{buttonEnable?"hover_class":""}}'  bindtap='ensureEdit'>确定</view>

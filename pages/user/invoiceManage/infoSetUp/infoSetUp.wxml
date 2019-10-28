@@ -1,0 +1,13 @@
+<!--pages/user/invoiceManage/infoSetUp/infoSetUp.wxml-->
+<view class='invoice-info' bindtap='navigatePage' data-tag="invoiceInfo">
+  <text class='ft-30 color-222'>发票信息</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view>
+<!-- <view class='invoice-info' bindtap='navigatePage' data-tag="deliveryAddress">
+  <text class='ft-30 color-222'>配送地址</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view> -->
+<!-- <view class='invoice-info' bindtap='navigatePage' data-tag="emailList">
+  <text class='ft-30 color-222'>电子邮箱</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view> -->

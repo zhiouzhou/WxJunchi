@@ -1,0 +1,36 @@
+<!-- pages/product/evaluateList.wxml -->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='title-1'>
+  <text class='evaluate-icon'></text>
+  <text class='color-222 ft-32'>商品评价({{total}}）</text>
+</view>
+<view class='evalusteList' scroll-y style="height:{{windowHeight}}px" bindscrolltolower="lower" wx:if="{{!isEmpty}}">
+  <!--评价列表  -->
+  <block wx:for="{{evaluateList}}" wx:key="{{item.id}}">
+    <view class='evaluate-list'>
+      <view class='user-info'>
+        <image src='{{item.headPic?item.headPic:"/assets/image/ic-touxiang@2x.png"}}' class="user-image"></image>
+        <view style='flex:1;'>
+          <view class='user-and-time'>
+            <text class='color-222 ft-28'>{{item.nickname}}</text>
+            <text class='color-222 ft-24'>{{item.gmtCreate}}</text>
+          </view>
+          <view class='color-84 ft-22' style='display:flex;align-items:center;justify-content:space-between;margin-top:12rpx;'>
+            <text>会员号:{{item.memberId}}</text>
+            <view>
+             <image wx:for="{{item.grade}}" wx:key="{{index}}" src='/assets/image/xingxing@2x.png' class='ic-pingfen skeleton-rect'></image>
+             <text>{{item.grade}}分</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='evaluate-content color-222 ft-30'>{{item.content}}</view>
+    </view>
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无评价~</text>
+</view>

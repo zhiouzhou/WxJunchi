@@ -1,0 +1,35 @@
+<!--pages/user/invoiceManage/invoiceHistory/invoiceHistory.wxml-->
+<wxs src="../../../../utils/WxsUtil.wxs" module="WxsUtil" />
+  <block wx:for="{{historyList}}"  wx:if="{{!isEmpty}}">
+    <view class='invoiceHistory' catchtap='viewDetail' data-invoice-info="{{item}}">
+      <view class='invoice-title'>
+        <view class='ft-30 color-1e productName'>"{{item.goodsName}}"</view>
+        <text class='ft-30 color-1e'>{{item.status=="NO"?"未开票":item.status=="ING"?"开票中":item.status=="YES"?"已开票":''}}</text>
+      </view>
+      <!-- 发票内容 -->
+      <view class='invoice-content'>
+        <view class='conent-list'>
+          <text class='ft-28 color-84'>申请时间：</text>
+          <text class='ft-28 color-222'>{{item.gmtCreate}}</text>
+        </view>
+        <view class='conent-list'>
+          <text class='ft-28 color-84'>开票金额：</text>
+          <text class='ft-28 color-222'>￥{{WxsUtil.splitNum(item.amount)||0}}</text>
+        </view>
+        <view class='conent-list'>
+          <text class='ft-28 color-84'>开票内容：</text>
+          <text class='ft-28 color-222'>商品明细</text>
+        </view>
+        <view class='conent-list'>
+          <text class='ft-28 color-84'>发票类型：</text>
+          <text class='ft-28 color-222'>{{item.invoiceType=='PAPER'?'纸质':'电子票'}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无开票记录</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>

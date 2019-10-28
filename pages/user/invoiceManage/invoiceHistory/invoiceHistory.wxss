@@ -1,0 +1,46 @@
+/* pages/user/invoiceManage/invoiceHistory/invoiceHistory.wxss */
+
+.invoiceHistory {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+}
+
+.invoice-title {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invoice-content {
+  padding: 30rpx;
+}
+
+.productName {
+  width: 63%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.conent-list{
+  line-height: 48rpx;
+}
+.empty{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin-top: 140rpx;
+}
+
+.empty-icon{
+  width: 180rpx;
+  height:180rpx;
+  margin-bottom: 40rpx;
+}
+.empty-tip{
+  color: #656c78;
+
+}

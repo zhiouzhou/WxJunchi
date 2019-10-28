@@ -1,0 +1,186 @@
+<!-- pages/message/message.wxml -->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<view style="height:{{windowHeight}}px" bindscrolltolower="lower" scroll-y wx:if="{{!isEmpty}}">
+  <view class="message" wx:for="{{messageList}}" wx:key="{{item.id}}">
+    <view class='message-time'>
+      <view class="ft-30 color-333">{{item.mesgType=='BOOK_RESULT'?'预约结果通知':item.mesgType=='FEEDBACK_RESULT'?'投诉与建议反馈消息':item.mesgType=='INVOICE_STATUS'?'发票开具消息':item.mesgType=='PAY_RESULT'?'支付结果消息':item.mesgType=='REFUND'?'退款消息':item.mesgType=='ORDER_STATUS'?'订单状态变更通知':item.mesgType=='INCOME_ACCOUNT'?'收益到账通知':''}}</view>
+      <view class='ft-30 color-84'>{{item.mgContent.bookTime}}</view>
+
+      <view class='message-content'>
+        <!-- 预约结果通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='BOOK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">预约编号</text>
+          <view class='message-info-title'>{{item.mgContent.bookId}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='BOOK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">预约门店</text>
+          <view class='message-info-title'>{{item.mgContent.stationName}}</view>
+        </view>
+        <!-- <view class='ft-32 color-333'><text class="ft-32 color-84">联系人：</text>{{item.mgContent.bookId}}</view> -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='BOOK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">预约结果</text>
+          <view class='message-info-title'>{{item.mgContent.statusContent}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='BOOK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg}}</view>
+        </view>
+        <!-- 发票开具消息提醒 -->
+        <!-- <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">公司名称</text>
+          <view class='message-info-title'>{{item.mgContent.compName}}</view>
+        </view> -->
+          <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">发票抬头</text>
+          <view class='message-info-title'>{{item.mgContent.invoiceTitle}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">税号</text>
+          <view class='message-info-title'>{{item.mgContent.taxNumber}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">开票项目</text>
+          <view class='message-info-title'>{{item.mgContent.invoiceItem}}</view>
+        </view>
+      
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">发票金额</text>
+          <view class='message-info-title'>{{item.mgContent.invoiceValue||''}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INVOICE_STATUS'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg}}</view>
+        </view>
+        <!-- 退款通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">订单编号</text>
+          <view class='message-info-title'>{{item.mgContent.orderNo}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">商品名称</text>
+          <view class='message-info-title'>{{item.mgContent.goodName}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">退款状态</text>
+          <view class='message-info-title'>{{item.mgContent.refundStatus}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">退款方式</text>
+          <view class='message-info-title'>{{item.mgContent.refundType}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">退款金额</text>
+          <view class='message-info-title'>{{item.mgContent.refundValue}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">退款原因</text>
+          <view class='message-info-title'>{{item.mgContent.refundCause}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">退款时间</text>
+          <view class='message-info-title'>{{item.mgContent.refundTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info ' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">手续费</text>
+          <view class='message-info-title'>{{item.mgContent.serviceFee}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='REFUND'}}">
+          <text class="ft-30 color-84 message-title">客服电话</text>
+          <view class='message-info-title'>{{item.mgContent.servicePhone}}</view>
+        </view>
+        <!-- 支付成功通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='PAY_RESULT'}}">
+          <text class="ft-30 color-84 message-title">订单号</text>
+          <view class='message-info-title'>{{item.mgContent.orderNo}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='PAY_RESULT'}}">
+          <text class="ft-30 color-84 message-title">订单状态</text>
+          <view class='message-info-title'>{{item.mgContent.orderStatus}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='PAY_RESULT'}}">
+          <text class="ft-30 color-84 message-title">支付时间</text>
+          <view class='message-info-title'>{{item.mgContent.payTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='PAY_RESULT'}}">
+          <text class="ft-30 color-84 message-title">商品名称</text>
+          <view class='message-info-title'>{{item.mgContent.goodName}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='PAY_RESULT'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg}}</view>
+        </view>
+        <!-- 反馈处理结果通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='FEEDBACK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">反馈状态</text>
+          <view class='message-info-title'>{{item.mgContent.isDeal==1?'已处理':'未处理'}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='FEEDBACK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">提交时间</text>
+          <view class='message-info-title'>{{item.mgContent.createTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info message-info' wx:if="{{item.mesgType=='FEEDBACK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">反馈内容</text>
+          <view class='message-info-title'>{{item.mgContent.csContent}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='FEEDBACK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">处理时间</text>
+          <view class='message-info-title'>{{item.mgContent.dealTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='FEEDBACK_RESULT'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg||''}}</view>
+        </view>
+        <!-- 订单状态变更通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='ORDER_STATUS'}}">
+          <text class="ft-30 color-84 message-title">订单号</text>
+          <view class='message-info-title'>{{item.mgContent.orderNo}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='ORDER_STATUS'}}">
+          <text class="ft-30 color-84 message-title">订单状态</text>
+          <view class='message-info-title'>{{item.mgContent.orderStatus}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='ORDER_STATUS'}}">
+          <text class="ft-30 color-84 message-title">订单内容</text>
+          <view class='message-info-title'>{{item.mgContent.statusContent}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='ORDER_STATUS'}}">
+          <text class="ft-30 color-84 message-title">更新时间</text>
+          <view class='message-info-title'>{{item.mgContent.statusTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='ORDER_STATUS'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg||''}}</view>
+        </view>
+        <!-- 收益到账通知 -->
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INCOME_ACCOUNT'}}">
+          <text class="ft-30 color-84 message-title">收益类型</text>
+          <view class='message-info-title'>{{item.mgContent.incomeType}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INCOME_ACCOUNT'}}">
+          <text class="ft-30 color-84 message-title">收益金额</text>
+          <view class='message-info-title'>{{WxsUtil.splitNum(item.mgContent.incomeValue)}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INCOME_ACCOUNT'}}">
+          <text class="ft-30 color-84 message-title">到账时间</text>
+          <view class='message-info-title'>{{item.mgContent.incomeTime}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INCOME_ACCOUNT'}}">
+          <text class="ft-30 color-84 message-title">余额</text>
+          <view class='message-info-title'>{{WxsUtil.splitNum(item.mgContent.accountBalance)}}</view>
+        </view>
+        <view class='ft-30 color-333 message-info' wx:if="{{item.mesgType=='INCOME_ACCOUNT'}}">
+          <text class="ft-30 color-84 message-title">备注</text>
+          <view class='message-info-title'>{{item.mgContent.tipMesg||''}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>

@@ -1,0 +1,8 @@
+<!--pages/user/invoiceManage/infoSetUp/emailList/addEmai.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='addMail'>
+  <input class='ft-32 color-222' type='email' bindinput='onEmail' value='{{email}}' placeholder='请输入您的电子邮箱'></input>
+</view>
+
+<view class='ft-32 color-FFF {{buttonEnable?"ensure":"unensure"}}' bindtap='ensure'>确定</view>

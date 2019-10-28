@@ -1,0 +1,100 @@
+
+{
+"pages": [
+  "pages/homePage/homePage",
+  "pages/login/login",
+  "pages/index/index",
+  "pages/message/message",
+  "pages/shopCart/shopCart",
+  "pages/user/user",
+  "pages/user/myWallet/myWallet",
+  "pages/product/productDetail",
+  "pages/shopCart/placeOrder",
+  "pages/user/orders/myOrder",
+  "pages/user/orders/orderDetail",
+  "pages/user/accountManage/accoutManage",
+  "pages/user/accountManage/editData",
+  "pages/user/receiveAddress/receiveAddress",
+  "pages/user/receiveAddress/addReceiveAddress",
+  "pages/shopCart/address",
+  "pages/user/accountManage/editDataPage",
+  "pages/login/codeInput",
+  "pages/user/myBankCard/myBankCard",
+  "pages/user/complaint",
+  "pages/user/aboutUs",
+  "pages/user/myGarage/myGarage",
+  "pages/user/myGarage/addGarage",
+  "pages/user/myBankCard/addBankCard",
+  "components/product/product",
+  "pages/user/orders/ealuation",
+  "pages/user/invoiceManage/invoiceManage",
+  "pages/user/invoiceManage/invoicing",
+  "pages/user/invoiceManage/invoiceAccordToOrder",
+  "pages/user/invoiceManage/invoiceHistory/invoiceHistory",
+  "pages/user/invoiceManage/invoiceHistory/invoiceDetail",
+  "pages/user/invoiceManage/infoSetUp/infoSetUp",
+  "pages/user/invoiceManage/infoSetUp/invoiceInfo/invoiceInfo",
+  "pages/user/invoiceManage/infoSetUp/invoiceInfo/addInvoiceInfo",
+  "pages/user/invoiceManage/infoSetUp/emailList/emailList",
+  "pages/user/accountManage/setLoginPsw",
+  "pages/user/invoiceManage/infoSetUp/emailList/addEmai",
+  "pages/user/invoiceManage/infoSetUp/deliveryAddress/deliveryAddress",
+  "pages/user/invoiceManage/infoSetUp/deliveryAddress/addDeliveryAddress",
+  "pages/login/findPassword",
+  "pages/user/accountManage/setPayPass",
+  "pages/user/orders/productInstall",
+  "pages/product/evaluateList",
+  "pages/user/accountManage/subordinate",
+  "pages/homePage/information",
+  "pages/homePage/industry",
+  "pages/user/orders/applyService",
+  "pages/user/orders/storeInfo",
+  "pages/homePage/helper",
+  "pages/user/accountManage/identification",
+  "pages/user/myWallet/withdraw",
+  "pages/homePage/activity"
+],
+"window": {
+  "backgroundColor": "#fff",
+  "navigationBarBackgroundColor": "#f43e32",
+  "navigationBarTitleText": "骏驰智驾",
+  "navigationBarTextStyle": "white"
+},
+"tabBar": {
+  "selectedColor": "#e53935",
+  "backgroundColor": "#fff",
+  "list": [
+    {
+      "pagePath": "pages/homePage/homePage",
+      "text": "首页",
+      "iconPath": "assets/image/shouye_weixuan@2x.png",
+      "selectedIconPath": "assets/image/shouye_yixuan@2x.png"
+    },
+    {
+      "pagePath": "pages/message/message",
+      "text": "消息",
+      "iconPath": "assets/image/messge_weixuan@2x.png",
+      "selectedIconPath": "assets/image/message_yixuan@2x.png"
+    },
+    {
+      "pagePath": "pages/shopCart/shopCart",
+      "text": "购物车",
+      "iconPath": "assets/image/shopCart_weixuan@2x.png",
+      "selectedIconPath": "assets/image/shopCart_yixuan@2x.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "assets/image/wode_weixuan@2x.png",
+      "selectedIconPath": "assets/image/wode_yixuan@2x.png"
+    }
+  ]
+},
+"sitemapLocation": "sitemap.json",
+"debug": true,
+"permission": {
+  "scope.userLocation": {
+    "desc": "你的位置信息将用于小程序位置接口的效果展示"
+  }
+}
+}

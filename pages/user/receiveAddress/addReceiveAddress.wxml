@@ -1,0 +1,29 @@
+<!--pages/user/receiveAddress/addReceiveAddress.wxml-->
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{...$yjp.toast}}" />
+
+<view class='addReceiveAddress'>
+  <input placeholder='收货人姓名' bindinput='userName' value='{{address.receiverName}}'></input>
+</view>
+<view class='addReceiveAddress'>
+  <input placeholder='手机号' bindinput='userPhone' maxlength='11' value='{{address.receiverMobile}}'></input>
+</view>
+<view class='addReceiveAddress'>
+  <view class="section">
+    <picker mode="region" bindchange="bindRegionChange" value="{{address.region}}" style='width:100%;'>
+      <view class="picker color-222 ft-30" >
+        {{address.region[0]}} {{address.region[1]}} {{address.region[2]||'所在地区（省、市、区）'}}
+      </view>
+    </picker>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='select-icon'></image>
+  </view>
+</view>
+<view class='addReceiveAddress'>
+  <input placeholder='详细地址' value='{{address.detailedAddress}}' bindinput='detailAddress'></input>
+</view>
+<view class='default-address' catchtap='defaultSelect'>
+  <image class='select-img' src='{{address.preferred?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' ></image>
+  <text class='ft-30 color-222'>设为默认地址</text>
+</view>
+<!-- 保存 -->
+<view class='{{buttonEnable==false?"wei-hold":"hold"}}' hover-class='{{buttonEnable?"hover_class":""}}'  catchtap='hold'>保存</view>

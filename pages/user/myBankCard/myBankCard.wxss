@@ -1,0 +1,83 @@
+/* pages/user/myBankCard/myBankCard.wxss */
+.myBankCard-list{
+  margin: 36rpx 36rpx 20rpx 36rpx;
+  background: linear-gradient(90deg,rgb(232,77,85),rgb(204,14,23));
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.myBankCard-info{
+  display: flex;
+  align-items: center;
+  padding: 48rpx 48rpx 0;
+}
+.bank-image{
+  width: 80rpx;
+  height: 80rpx;
+  background: #eaeaea;
+  border-radius: 50%;
+  margin-right: 22rpx;
+}
+
+.bank-name{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number{
+  text-align: center;
+  padding:60rpx 0 46rpx;
+}
+
+.delete{
+  position: absolute;
+  right: 24rpx;
+  top: 24rpx;
+  padding: 12rpx 26rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #fff
+}
+
+.addBankCard{
+  height: 72rpx;
+  line-height: 72rpx;
+  background:  #e00000;
+  border-radius: 44rpx;
+  text-align: center;
+  width: 97%;
+  position: fixed;
+  bottom: 48rpx;
+  left: 14rpx;
+}
+
+.empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.empty-icon{
+  width: 248rpx;
+  height: 248rpx;
+  margin-bottom: 60rpx;
+}
+.empty-tip{
+  color: #656c78;
+
+}
+
+.select-btn{
+  color: #656c78;
+  background: #fff;
+  border: 2rpx solid #a9b2bd;
+  width: 176rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+.hover_class{
+  background: #aa2b2b
+}

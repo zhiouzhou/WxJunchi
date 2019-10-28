@@ -1,0 +1,77 @@
+/* pages/index/control.wxss */
+
+page {
+  background: #fff;
+}
+
+.header {
+  width: 95%;
+  margin: 0 25rpx;
+  margin-top: 60rpx;
+
+}
+
+/* .assess {
+  display: block;
+} */
+
+.stars {
+  display: flex;
+  height: 120rpx;
+  /* background:red; */
+  align-items: center;
+}
+
+.stars-txt {
+  margin: 0 24rpx;
+}
+
+.stars-image {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.text {
+  margin-top: 22rpx;
+}
+
+.textarea {
+  height: 210rpx;
+  border: 1px solid #ddd;
+  display: block;
+  background: #f6f5fa;
+  padding: 24rpx;
+  /* margin: auto; */
+  letter-spacing: 0.5px;
+  width: 92%;
+}
+
+.submit {
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  background: #e10000;
+  text-align: center;
+  line-height: 80rpx;
+  justify-content: center;
+  width: 95%;
+  margin: auto;
+  border-radius: 15rpx;
+  letter-spacing: 0.5px;
+}
+
+.stars-click {
+  display: flex;
+  align-items: center;
+}
+
+.shop-score-star {
+  margin-right: 12rpx;
+  width: 58rpx;
+  height: 58rpx;
+}
+.hover_class{
+  background: #aa2b2b
+}

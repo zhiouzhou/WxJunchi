@@ -1,0 +1,29 @@
+<!--pages/user/accountManage/editData.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='edit-acount' bindtap='chooseImage'>
+  <text class='ft-32'>编辑头像</text>
+  <image src='{{userInfo.headPic?userInfo.headPic:"/assets/image/ic-touxiang@2x.png"}}' class='account-img'></image>
+</view>
+<view class='edit-acount' catchtap='gotoEditPage' data-tag="username" data-member-id='{{userInfo.memberId}}'>
+  <text class='ft-32'>昵称</text>
+  <view class='acount-info'>
+    <text class="ft-28 color-84">{{userInfo.nickname}}</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+  </view>
+
+</view>
+<view class='edit-acount' catchtap='gotoEditPage' data-tag="mobile" data-member-id='{{userInfo.memberId}}'>
+  <text class='ft-32'>手机号</text>
+  <view class='acount-info'>
+    <text class="ft-28 color-84">{{userInfo.mobile}}</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+  </view>
+</view>
+<view class='edit-acount' catchtap='gotoEditPage' data-tag="email" data-member-id='{{userInfo.memberId}}'>
+  <text class='ft-32'>邮箱</text>
+  <view class='acount-info'>
+    <text class="ft-28 color-84">{{userInfo.email}}</text>
+    <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+  </view>
+</view>

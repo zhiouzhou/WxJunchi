@@ -1,0 +1,101 @@
+/* pages/user/myGarage/myGarage.wxss */
+
+.garage-list{
+  background: #fff;
+  margin: 20rpx;
+  padding: 30rpx;
+  border-radius: 16rpx;
+}
+.carInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:28rpx;
+  border-bottom: 2rpx solid #eaeaea; 
+}
+
+.drive-license{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28rpx 0;
+}
+
+.license-img{
+  width: 136rpx;
+  height: 136rpx;
+  border: 2rpx solid #ededed;
+}
+.default-garage{
+  display: flex;
+  align-items: center;
+}
+.default-icon{
+  width: 44rpx;
+  height: 44rpx;
+}
+.edit-garage{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-btn{
+  display: flex;
+  align-items: center;
+}
+
+.hover_class{
+  background: #aa2b2b
+}
+.edit-btn view{
+  width: 144rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border:2rpx solid #eaeaea;
+  margin-left: 24rpx;
+  border-radius: 44rpx;
+}
+
+.add-garage-info{
+  position: fixed;
+  bottom: 48rpx;
+  left: 15rpx;
+  width: 96%;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background: #e00000;
+  border-radius: 44rpx;
+}
+
+.empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.empty-icon{
+  width: 248rpx;
+  height: 248rpx;
+  margin-bottom: 60rpx;
+}
+.empty-tip{
+  color: #656c78;
+
+}
+
+.select-btn{
+  color: #656c78;
+  background: #fff;
+  border: 2rpx solid #a9b2bd;
+  width: 176rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+

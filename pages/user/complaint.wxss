@@ -1,0 +1,102 @@
+/* pages/user/complaint.wxss */
+
+page {
+  background: #fff;
+}
+
+.complaint-container {
+  margin: 0 24rpx;
+}
+
+.title {
+  padding-top: 60rpx;
+  font-weight: bold
+}
+.upload{
+  display: flex;
+  align-items: center;
+   margin:24rpx 0;
+}
+.upload-image{
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.cream-img{
+  width: 46rpx;
+  height: 40rpx;
+  padding-bottom: 16rpx;
+}
+
+.tousu-img-show{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+
+.complaint-content {
+  padding: 24rpx;
+  margin-top: 24rpx;
+  border-radius: 8rpx;
+  background: #d3d3d3;
+  height: 244rpx;
+  box-sizing: border-box;
+  line-height: 48rpx;
+  width:100%;
+
+}
+
+.account-info {
+  border: 2rpx solid #eaeaea;
+  padding: 32rpx 24rpx;
+  margin: 48rpx 0 120rpx;
+  border-radius: 8rpx;
+}
+
+.submite {
+  height: 88rpx;
+  border: 2rpx solid #eaeaea;
+  text-align: center;
+  line-height: 88rpx;
+  border-radius: 8rpx;
+}
+
+.help-title {
+  display: flex;
+  align-items: center;
+  margin: 170rpx 0 60rpx;
+  justify-content: space-between;
+}
+
+.line {
+  width: 200rpx;
+  height: 4rpx;
+  background: #eaeaea;
+}
+
+.server{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  border: 2rpx solid #eaeaea;
+  border-radius: 8rpx;
+  margin-bottom: 48rpx;
+}
+.phone-service{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.phone-icon{
+  width: 68rpx;
+  height: 68rpx;
+  padding-right: 20rpx;
+}

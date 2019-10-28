@@ -1,0 +1,24 @@
+/* pages/user/accountManage/editData.wxss */
+.edit-acount{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  background: #fff;
+}
+.account-img{
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50px;
+}
+.acount-info{
+  display:flex;
+  align-items: center;
+}
+.more-icon{
+  width: 13rpx;
+  height: 24rpx;
+  margin-left: 28rpx;
+}

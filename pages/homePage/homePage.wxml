@@ -1,0 +1,112 @@
+<!--pages/homePage/homePage.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<!-- <skeleton selector="skeleton"
+          loading="spin"
+          bgcolor="#FFF"
+          wx:if="{{showSkeleton}}"></skeleton> -->
+<view style='height:{{windowHeight}}px'>
+  <view>
+    <!-- style="background:url('../../assets/image/homepage-bg@2x.png');background-size:100% 256rpx; background-repeat:no-repeat" -->
+    <view class='bg-image skeleton-rect'>
+      <image class='bg-image-show' src='/assets/image/homepage-bg@2x.png'></image>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="18" next-margin="16" bindchange='changeFun' circular="true">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}" easing-function="easeInOutCubic">
+          <swiper-item>
+            <!-- 暂时去掉 -->
+            <!--  style='{{index != centerItem?"height:90%;margin-top:20rpx":""}}' -->
+            <view class="optionBox">
+              <!-- <view class='mask' wx:if='{{ index != centerItem }}'></view> -->
+              <image src="{{item.picPath}}" catchtap='gotoImageDetail' data-info-url="{{item.infoUrl}}" class="slide-image" width="355" height="150" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!--导航栏  -->
+    <view class="nav-icon">
+      <view class="nav-title">
+        <view class="nav" catchtap='gotoImageDetail' data-info-url="https://jl.jcstauto.com/junchi2/junchi_page1.html">
+          <image class="nav-img skeleton-radius" src='/assets/image/junchi@2x.png'></image>
+          <text class="ft-26 color-222 skeleton-rect">骏驰科技</text>
+        </view>
+        <view class="nav" catchtap='gotoIndustry'>
+          <image class="nav-img skeleton-radius" src='/assets/image/hangyezixun@2x.png'></image>
+          <text class="ft-26 color-222 skeleton-rect">行业资讯</text>
+        </view>
+        <view class="nav" catchtap='gotoImageDetail' data-info-url="https://jl.jcstauto.com/junchi2/junchi_sell.html">
+          <image class="nav-img skeleton-radius" src='/assets/image/jingxiaojiameng@2x.png'></image>
+          <text class="ft-26 color-222 skeleton-rect">经销加盟</text>
+        </view>
+        <!-- <view class="nav"  catchtap='gotoImageDetail' data-info-url="https://jc.tieyan.top/junchi2/junchi_helper.html">
+          <image class="nav-img skeleton-radius" src='/assets/image/tuiguangzhushou@2x.png'></image>
+          <text class="ft-26 color-222 skeleton-rect">推广助手</text>
+        </view> -->
+        <view class="nav" catchtap='gotoHelper'>
+          <image class="nav-img skeleton-radius" src='/assets/image/tuiguangzhushou@2x.png'></image>
+          <text class="ft-26 color-222 skeleton-rect">推广助手</text>
+        </view>
+      </view>
+      <!-- <view class="newTitle">
+      <view style="font-size:28rpx;min-width:114rpx;font-weight:bold;">
+        <text style="color:rgb(217,0,1); font-size:28rpx;font-family:SourceHanSansCN-Heavy;">骏驰</text>快报
+      </view>
+      <view class="new-content">
+        <text class="title">新闻</text>
+        <text class="title-info">人民r报等6大全f独守空房坚实的开发商的开发商开发你是客服男生的</text>
+      </view>
+    </view> -->
+    </view>
+    <!--骏驰精选  商品列表   -->
+    <view class="junchi-product ">
+      <!--商品j精选title  -->
+      <view class="product-title">
+        <view class="product-title-flex skeleton-rect">
+          <text class='title-icon skeleton-rect'></text>
+          <text class="color-222 ft-32 ">骏驰商城</text>
+          <text class='color-84 ft-24 '>专业品质尽在骏驰</text>
+        </view>
+        <image class="junchi-icon"></image>
+      </view>
+      <!--滚动区域  -->
+      <!--  -->
+      <view class='product-list ' wx:for="{{productList}}" wx:key="{{item.no}}" bindtap='gotoProductDetail' data-product-no="{{item.no}}" data-product-item='{{item}}'>
+        <image src='{{item.goodsImg}}' class="product-img skeleton-rect"></image>
+        <view class="product-info-content ">
+          <!--商品名和评分  -->
+          <view class="product-info">
+            <text class="color-000 ft-30 skeleton-rect">{{item.name}}</text>
+            <view style='display:flex;align-items:center;'>
+
+              <view style='margin-right:20rpx;'>
+                <image wx:for="{{item.reviewScore}}" wx:key="{{index}}" src='/assets/image/xingxing@2x.png' class='ic-pingfen skeleton-rect'></image>
+              </view>
+              <text class='ft-24 skeleton-rect' style='color:#f0250f;padding-top:2rpx;'>{{item.reviewScore}}分</text>
+
+            </view>
+          </view>
+          <!--价格和加入购物车  -->
+          <view class="price-add-cart">
+            <view>
+              <view class='skeleton-rect price '>
+                <view>
+                  <text class="ft-24 color-red">￥</text>
+                  <text class="ft-44 color-red">{{item.currentPrice}}</text>
+                </view>
+                <view class='origin_price ft-28 color-84'>原价{{item.originPrice}}</view>
+              </view>
+              <view class="ft-24 color-84 skeleton-rect">销售{{item.salesVolume}}件 | {{item.favorableCount}}%好评</view>
+            </view>
+            <image src="/assets/image/shopCart_ic@2x.png" class='shopCart-img skeleton-radius' catchtap='addShopCart' data-no='{{item.no}}'></image>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <!--到底提示  -->
+    <!-- <view class="tolower-title">—— 已经到底了 ——</view> -->
+    <!-- 客服 -->
+    <image src='/assets/image/kefu@2x.png' class='kefu-icon' catchtouchmove='touchMove' catchtap='gotoEvalute' style="left:{{feed_style.x}};top:{{feed_style.y}};"></image>
+  </view>
+</view>

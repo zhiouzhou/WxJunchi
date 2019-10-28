@@ -1,0 +1,72 @@
+/* pages/product/evaluateList.wxss */
+
+.title-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background:#fff;
+    margin: 20rpx;
+    padding: 33rpx 24rpx;
+    border-radius: 8rpx;
+  }
+  .evaluate-icon {
+    width: 8rpx;
+    height: 32rpx;
+    background: #f43e32;
+    border-radius: 8rpx;
+    display: block;
+    margin-right: 12rpx;
+  }
+  /*评价列表  */
+
+.evaluate-list {
+  padding: 24rpx 24rpx 40rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  background:#fff;
+margin:0 20rpx 20rpx;
+border-radius: 8rpx;
+
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 11rpx;
+}
+.ic-pingfen{
+ width: 20rpx;
+  height: 22rpx;
+  margin-right: 8rpx;
+}
+
+.user-and-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evaluate-content {
+  padding-top: 41rpx;
+}
+.empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.empty-icon{
+  width: 248rpx;
+  height: 248rpx;
+  margin-bottom: 60rpx;
+}
+.empty-tip{
+  color: #656c78;
+
+}

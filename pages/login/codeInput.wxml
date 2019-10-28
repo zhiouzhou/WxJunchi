@@ -1,0 +1,24 @@
+<!--pages/login/codeInput.wxml-->
+<import src="../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='code-title'>
+  <view class='ft-48 color-222' style='margin-bottom:24rpx;'>输入短信验证码</view>
+  <text class='ft-26 color-84'>已发送六位短信验证码至{{mobile}}</text>
+</view>
+<!-- 输入框整体 -->
+  <view class='code-input-wrap' style='height:96rpx;'>
+    <!-- 输入框，个数 -->
+    <view class='code-frame-wrap'>
+      <block wx:for="{{codeNumFakeArr}}">
+        <!-- 通过下标直接去codeValue字符串中取值并展示出来 -->
+        <view class='code-frame color-333 ft-48' style='width:96rpx;height:96rpx; line-height:96rpx;border-color:{{index==codeValue.length&&index!=0?"#e53935":""}};'>{{codeValue[index]}}</view>
+      </block>
+    </view>
+    <input class='code-input' value='{{codeValue}}' focus='true' bindinput='onCodeInput' maxlength='{{codeNumFakeArr.length}}' type='number' bindblur="blur" />
+  </view>
+  <!-- 倒计时 -->
+  <view class='countDown'>
+    <text class='ft-28 color-84' style='padding-right:25rpx;' wx:if="{{!countShow}}">{{count}}s后重新发送</text>
+    <text class='ft-28 color-2b' wx:else bindtap='resend'>重新发送</text>
+  </view>
+  <view class='login ft-32 color-FFF' bindtap='login' hover-class="hover_class">登录</view>

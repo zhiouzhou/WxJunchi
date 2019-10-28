@@ -1,0 +1,57 @@
+<!--pages/shopCart/shopCart.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<view  style='margin-bottom:100rpx;'  wx:if="{{!isEmpty}}">
+  <block wx:for="{{shopCartList}}" wx:key="{{item.id}}">
+    <view class='shop-cart-list'>
+      <image src='{{selectId==item.id?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' mode='aspectFit' class='select-icon' catchtap='selectList' data-index="{{index}}" data-id='{{item.id}}'></image>
+      <view class='product-info'>
+        <!-- 商品信息 -->
+        <view class='product-info-content'>
+          <image src='{{item.goods.goodsImg}}' class='product-image' mode='aspectFit'></image>
+          <view class='product-name-price'>
+            <text class='ft-30 color-333'>{{item.goods.name}}</text>
+            <view class='product-price'>
+              <view>
+                <text class='color-2b ft-24'>￥</text>
+                <text class='color-2b ft-44'>{{WxsUtil.splitNum(item.price)}}</text>
+              </view>
+              <!-- 加减数量暂时去掉 -->
+              <!-- <view class='num'>
+                <view class='ft-32 color-333 count'>
+                  <image src='/assets/image/jian_ic@2x.png' style='margin-right:24rpx' catchtap='btn_reduce' data-index="{{index}}" data-goods-no="{{item.goods.no}}"></image>{{item.count}}
+                  <image src='/assets/image/add_ic@2x.png'  style='margin-left:24rpx' catchtap='btn_add' data-index="{{index}}" data-goods-no="{{item.goods.no}}"></image>
+                </view>
+              </view> -->
+            </view>
+          </view>
+        </view>
+        <!-- 删除 -->
+        <view class='delete color-84 ft-28' catchtap='deleteProduct' data-item-id="{{item.id}}">
+          <image src='/assets/image/delete-ic@2x.png' mode='aspectFit' class='delete-icon'></image>删除</view>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 空页面 -->
+<view class='empty'  wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view>
+</view>
+
+<!-- 底部结算栏 -->
+<view class='shopCart-footer'>
+  <!-- <view class='allSelect' catchtap='selectAll'>
+    <image src='{{selectAllStatus?"/assets/image/ic_gouwuchegouxuan@2x.png":"/assets/image/ic_gouwucheweigouxuan@2x.png"}}' class='select-icon'  style='margin-right:10rpx;'></image>
+    <text class='color-222 ft-24'>全选</text>
+  </view> -->
+  <view style='display:flex;align-items:center;'>
+    <text class='ft-22 color-84' style='padding-right:8rpx;'>不含运费</text>
+    <text class='ft-28 color-222'>合计：</text>
+    <text class='ft-28 color-red'>￥{{WxsUtil.splitNum(totalPrice,2)}}</text>
+  </view>
+  <!-- {{!balanceStatus?"background:#bdbddb;":""}} -->
+  <view class='balance' catchtap='balance' data-page-type='shopCart'>结算({{totalNumber}})</view>
+</view>

@@ -1,0 +1,20 @@
+
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class="header">
+  <text class="assess ft-36 color-222 bold">评价一下本次的购物体验吧~</text>
+  <view class="stars">
+    <image src="{{goodsImage}}" class="stars-image"></image>
+    <text class="stars-txt ft-30 color-222">商品评分</text>
+    <view class="stars-click">
+      <image class='shop-score-star' wx:for="{{stars}}" src='{{item.id>starId?"/assets/image/ic_pingfen_huise@2x.png":"/assets/image/ic_pingfen@2x.png"}}' bindtap='score_xing' data-index="{{index}}"/>
+    </view>
+    <!-- .... -->
+  </view>
+  <!-- 文本域 -->
+  <view class="text">
+    <textarea placeholder='宝贝满足你的期待吗?说说它的优点和美中不足的地方吧' class="textarea ft-26" value='{{content}}' bindinput='onContent'></textarea>
+  </view>
+  <!-- 提交评价 -->
+  <view class="submit color-FFF ft-34" bindtap='submitOrder'  hover-class='hover_class' >提交评价</view>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/user/accountManage/setLoginpsw.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{...$yjp.toast}}" />
+<view class='set-psw' wx:if="{{!hasPassword}}">
+  <input type='password' placeholder='请输入您需要设置的密码' class='ft-32 color-222' bindinput='setPassword' value='{{newPass}}'></input>
+</view>
+<view wx:else>
+  <view class='set-psw'>
+    <input type='password' placeholder='请输入旧密码' class='ft-32 color-222' bindinput='setOldPassword' value='{{oldPass}}'></input>
+  </view>
+  <view class='set-psw'>
+    <input type='password' placeholder='请输入新密码' class='ft-32 color-222' bindinput='setPassword' value='{{newPass}}'></input>
+  </view>
+</view>
+
+<view class='submit color-FFF ft-36' bindtap='submit' hover-class='hover_class' >
+  确定
+</view>

@@ -1,0 +1,25 @@
+/* pages/user/invoiceManage/infoSetUp/emailList/addEmai.wxss */
+.addMail{
+  padding: 24rpx 24rpx;
+  border: 2rpx solid #eaeaea;
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+}
+.ensure{
+  background: #e00000;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 16rpx;
+  margin: 40rpx 20rpx;
+}
+
+.unensure{
+  background: #bdbdbd;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 16rpx;
+  margin: 40rpx 20rpx;
+}

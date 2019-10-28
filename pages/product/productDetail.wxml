@@ -1,0 +1,127 @@
+<!-- pages/product/productDetail.wxml -->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<skeleton selector="skeleton" loading="spin" bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+<view class="product-detail skeleton">
+  <!-- 轮播图   wx:if="{{userInfo.swiperImgs}}" -->
+  <view class="swiper-container skeleton-rect">
+    <swiper duration="500" bindchange='changeFun' circular="true">
+      <block wx:for="{{productInfo.swiperImgs}}" wx:key="{{index}}">
+        <swiper-item>
+          <view class="optionBox">
+            <image src="{{item.url}}" class="slide-image" width="355" height="150" />
+          </view>
+          <!-- <view class="current">{{currentPage}}/{{imgCount}}</view> -->
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="current">{{currentPage}}/{{imgCount}}</view>
+  </view>
+  <!-- <view wx:else style='height:750rpx;width:100%'>
+    <image src='{{productInfo.goodsImg}}' style='height:100%;width:100%' ></image>
+  </view> -->
+  <!-- s商品价格 -->
+  <view class="product-price">
+    <view class='skeleton-rect price'>
+      <view>
+        <text class="ft-32 color-FFF">￥</text>
+        <text class="ft-56 color-FFF">{{productItem.currentPrice||WxsUtil.splitNum(productInfo.currentPrice)||''}}</text>
+      </view>
+      <view class='ft-26 color-FFF originPrice'>原价{{productItem.originPrice||WxsUtil.splitNum(productInfo.originPrice)||''}}</view>
+    </view>
+    <view style="display:flex;align-items:center" class='skeleton-rect'>
+      <image wx:for="{{productItem.reviewScore==0||productInfo.reviewScore==0?5:productItem.reviewScore||productInfo.reviewScore}}" src='/assets/image/white_xing@2x.png' class='ic-pingfen'></image>
+      <text class='color-FFF ft-30' style='display:block;margin-left:20rpx;'>{{productItem.reviewScore||productInfo.reviewScore}}分</text>
+    </view>
+  </view>
+  <view class='product-info'>
+    <view class='product-name'>
+      <view class="ft-34 productName skeleton-rect">{{productItem.name || productInfo.name}}</view>
+      <!-- catchtap='sharePage' -->
+      <button open-type='share' class='ft-22 color-84 share-button skeleton-rect' data-product-name="{{productItem.name||productInfo.name}}" data-product-no="{{productInfo.no}}">
+        <image src='/assets/image/share@2x.png' title="{{productItem.name||productInfo.name}}" class="share-image"></image>
+        分享
+      </button>
+    </view>
+    <view class="product-item">
+      <view>
+        <image src='/assets/image/xiaoshou@2x.png' class='icon skeleton-radius'></image>
+        <text class="color-red ft-26 skeleton-rect">销售{{productItem.salesVolume||productInfo.salesVolume}}件</text>
+      </view>
+      <view>
+        <image src='/assets/image/haoping@2x.png' class='icon skeleton-radius'></image>
+        <text class="color-red ft-26 skeleton-rect">{{productItem.favorableCount||productInfo.favorableCount}}%好评</text>
+      </view>
+      <view>
+        <image src='/assets/image/zhuanye@2x.png' class='icon skeleton-radius'></image>
+        <text class="color-red ft-26 skeleton-rect">专业保证</text>
+      </view>
+    </view>
+  </view>
+  <!-- 商品评价 -->
+  <view class="evaluate">
+    <view class='evaluate-title' catchtap="checkAll" data-goods-no="{{productInfo.no}}">
+      <view class='title-1 skeleton-rect'>
+        <text class='evaluate-icon'></text>
+        <text class='color-222 ft-32'>商品评价({{total}}）</text>
+      </view>
+      <view class='color-red ft-28 skeleton-rect'>
+        查看全部 >
+      </view>
+    </view>
+    <!-- 评价列表 -->
+    <block wx:for="{{evaluateList}}" wx:key="{{item.id}}" wx:if="{{!isEmpty}}">
+      <view class='evaluate-list'>
+        <view class='user-info'>
+          <image src='{{item.headPic?item.headPic:"/assets/image/ic-touxiang@2x.png"}}' binderror='binderrorimg' data-errorimg="{{index}}" class="user-image skeleton-radius"></image>
+          <view style='flex:1;'>
+            <view class='user-and-time'>
+              <text class='color-222 ft-28 skeleton-rect'>{{item.nickname}}</text>
+              <text class='color-222 ft-24 skeleton-rect'>{{item.gmtCreate}}</text>
+            </view>
+            <view class='color-84 ft-22' style='display:flex;align-items:center;justify-content:space-between;margin-top:12rpx;'>
+              <view class='color-84 ft-22 skeleton-rect'>会员号:{{item.memberId}}</view>
+              <view class='color-84 ft-22 skeleton-rect'>
+                <image wx:for="{{item.grade}}" wx:key="{{index}}" src='/assets/image/xingxing@2x.png' class='ic-pingfen '></image>
+                <text>{{item.grade}}分</text>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class='evaluate-content color-222 ft-30 skeleton-rect '>{{item.content}}</view>
+      </view>
+    </block>
+    <view wx:if='{{isEmpty}}' class="ft-30 color-222 skeleton-rect" style="padding:32rpx 0;text-align:center;border-bottom:2rpx solid #eaeaea;">暂无评价</view>
+  </view>
+  <!-- 商品详情 -->
+  <view class='product-detail-info '>
+    <view class="evaluate-title">
+      <view class='title-1 '>
+        <text class='evaluate-icon '></text>
+        <text class='color-222 ft-32 '>商品详情</text>
+      </view>
+    </view>
+    <view class='shop-detail-img '>
+      <view wx:for="{{productInfo.detailImgs}}">
+        <image src='{{item.url}}' mode='widthFix' style='width:100%;'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 空view -->
+  <view style='height:96rpx;margin-top:24rpx '></view>
+  <!-- 底部操作栏 -->
+  <view class='footer '>
+    <view class="shopCart" catchtap='gotoShopCart'>
+      <image src='/assets/image/ic_gouwuche@3x.png ' class='shopCart-img '></image>
+      <text class='ft-20 color-222 '>购物车</text>
+    </view>
+    <view class='ft-32 color-222 add-shopCart ' catchtap='addShopCart' data-no='{{productInfo.no}} '>
+      加入购物车
+    </view>
+    <view class='ft-32 color-FFF buy' catchtap='buyNow' data-product-info='{{productInfo}}' data-count='1' data-page-type='detail' data-total-price="{{productInfo.currentPrice}}">
+      立即购买
+    </view>
+  </view>
+</view>

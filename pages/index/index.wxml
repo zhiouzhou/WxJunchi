@@ -1,0 +1,16 @@
+<view wx:if="{{isHide}}">
+  <view class='header'>
+    <image src='/assets/image/homepage-bg@2x.png' class='logo-bg'></image>
+    <view class='logo'>
+      <image src='/assets/image/logo-guanyu@2x.png' class='logo-img'></image>
+      <text class="ft-30 color-222">骏驰智驾</text>
+    </view>
+  </view>
+
+  <view class='content'>
+    <text>请完成微信授权以继续使用</text>
+    <button class='bottom' type='warn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      授权微信用户信息
+    </button>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<!--pages/user/complaint.wxml-->
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view class='complaint-container'>
+  <view class='ft-36 color-222 title'>我们竭尽全力，为您带来更好的体验</view>
+  <textarea class='complaint-content color-222 ft-26' placeholder='请将您的建议或意见提交给我们，我们会尽快处理您的反馈！' value='{{complaint}}' bindinput='onCompalint'>
+  </textarea>
+  <view class='upload'>
+    <view class='upload-image' bindtap='chooseImage'>
+      <image src='/assets/image/cream@2x.png' class='cream-img'></image>
+      <text class='ft-24 color-84'>添加照片</text>
+    </view>
+    <view class='tousu-img' wx:for="{{tempFilePaths}}">
+      <image src='{{item}}' class='tousu-img-show'></image>
+    </view>
+  </view>
+
+  <input placeholder='请填写手机号或邮箱' value='{{account}}' class="ft-32 account-info" bindinput='onMobile'></input>
+
+  <!-- 提交 -->
+  <view class='submite ft-32 color-222' bindtap='submit'>提交</view>
+  <!-- 需要帮助  联系客服？ -->
+  <view class='help-title'>
+    <view class='line'></view>
+    <text class='help-text color-84 ft-26'>需要帮助？联系客服</text>
+    <view class='line'></view>
+  </view>
+  <!-- 电话客服 -->
+  <view class='server' catchtap='makePhoneCall'>
+    <view class='phone-service'>
+      <image class='phone-icon' src='/assets/image/phone@2x.png'></image>
+      <text class='ft-36 color-222'>电话客服</text>
+    </view>
+    <view class='ft-28 color-84'>9:00-18:00</view>
+  </view>
+
+</view>

@@ -1,0 +1,13 @@
+<!--pages/user/invoiceManage/invoiceManage.wxml-->
+<view class='invoice-info' bindtap='navigatePage' data-tag="invoiceAccordToOrder">
+  <text class='ft-30 color-222'>根据订单开发票</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view>
+<!-- <view class='invoice-info' bindtap='navigatePage' data-tag="invoiceHistory">
+  <text class='ft-30 color-222'>开票历史记录</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view> -->
+<view class='invoice-info' bindtap='navigatePage' data-tag="invoiceInfo">
+  <text class='ft-30 color-222'>发票信息</text>
+  <image src='/assets/image/ic_youjiantou_xiao@2x.png' class='more-icon'></image>
+</view>

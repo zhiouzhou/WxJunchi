@@ -1,0 +1,102 @@
+<!--pages/user/invoiceManage/invocing.wxml-->
+<wxs src="../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<form bindsubmit='submit' report-submit='true'>
+
+  <view class='select-type-title color-84 ft-30'>
+    请选择发票类型
+  </view>
+  <view class='invoice-type'>
+    <view class='select-type'>
+      <view class='{{invoiceType==0?"select-invoice":"invoice"}}' style="background:#eaeaea" bindtap='selectInvoiceType' data-index="0">
+        <text class='ft-32 {{invoiceType==0?"color-2b":"color-222"}}'>电子发票</text>
+        <text class='ft-24 {{invoiceType==0?"color-2b":"color-222"}}'>最快5分钟开具</text>
+      </view>
+      <view class='{{invoiceType==1?"select-invoice":"invoice"}}' bindtap='selectInvoiceType' data-index="1">
+        <text class='ft-32 {{invoiceType==1?"color-2b":"color-222"}}'>纸质发票</text>
+        <text class='ft-24 {{invoiceType==1?"color-2b":"color-222"}}'>预计五天内送达</text>
+      </view>
+    </view>
+    <text class='ft-24 color-84'>*电子发票与纸质发票具有同等法律效力，可支持报销入账</text>
+  </view>
+  <!-- 发票详情 -->
+  <view class='invoice-detail-title color-84 ft-30 '>发票详情</view>
+  <view class='invoice-detail'>
+    <view class='invoice-detail-info'>
+      <text class="ft-24 color-84 title">抬头类型</text>
+      <view class='rise-type'>
+        <view class='rise-type-select' catchtap='selectCompanyType' data-title-type='0'>
+          <image src="{{titleType==0?'/assets/image/ic_gouwuchegouxuan@2x.png':'/assets/image/ic_gouwucheweigouxuan@2x.png'}}" class='select-icon' />
+          <text class='ft-34 color-222'>企业单位</text>
+        </view>
+        <view class='rise-type-select' catchtap='selectCompanyType' data-title-type='1'>
+          <image src="{{titleType==1?'/assets/image/ic_gouwuchegouxuan@2x.png':'/assets/image/ic_gouwucheweigouxuan@2x.png'}}" class='select-icon' />
+          <text class='ft-34 color-222'>个人/非企业单位</text>
+        </view>
+      </view>
+    </view>
+    <view class='invoice-detail-info'>
+      <text class="ft-24 color-84 title">发票抬头</text>
+      <view style='display:flex;align-items:center;justify-content:space-between;'>
+        <input class='company-name color-222 ft-34' placeholder='{{titleType==0?"请填写或选择公司名称":"请填写抬头"}}' bindinput='onTitle' value='{{title}}'></input>
+        <view class='selectInvoice ft-28 color-333' bindtap='selectInvoice'>选择发票信息</view>
+      </view>
+
+    </view>
+    <view class='invoice-detail-info' wx:if="{{titleType==0}}">
+      <text class="ft-24 color-84 title">税号</text>
+      <input class='company-name color-222 ft-34' placeholder='请填写公司税号' bindinput='onTaxNo' value='{{taxNo}}'></input>
+    </view>
+    <view class='invoice-detail-info'>
+      <text class="ft-24 color-84 title">发票内容</text>
+      <view class=' color-222 ft-34'>商品明细</view>
+    </view>
+    <view class='invoice-detail-info-money'>
+      <view>
+        <text class="ft-24 color-84 title">发票金额</text>
+        <view>
+          <text class='ft-34 color-2b'>{{WxsUtil.splitNum(price)}}</text>
+          <text class='ft-34 color-222'>元</text>
+        </view>
+      </view>
+      <!-- <view style='display:flex;align-items:center'>
+      <text class='ft-30 color-84'>共一张,查看详情</text>
+      <image src="/assets/image/ic_youjiantou_xiao@2x.png" class="more-icon" />
+    </view> -->
+    </view>
+    <view class='invoice-detail-info'>
+      <text class="ft-24 color-84 title">更多信息</text>
+      <input class='company-name color-222 ft-34' placeholder='填写备注、地址等(非必填）' bindinput='onRemarks'></input>
+    </view>
+  </view>
+  <view class='select-type-title color-84 ft-30'>接收方式</view>
+  <!-- 电子邮箱 -->
+  <!-- <view class='invoice-detail-info' style='background:#fff'>
+  <text class="ft-24 color-84 title">电子邮箱</text>
+  <input class='company-name color-222 ft-34' placeholder='请填写电子邮箱'></input>
+</view> -->
+  <!-- 收货地址 -->
+  <view class='address' catchtap='selectAddress'>
+    <text class="ft-24 color-84 title">收货地址</text>
+    <block wx:if="{{addressInfo}}">
+      <view class='user-info'>
+        <text class='ft-34 color-1e'>{{addressInfo.receiverName}}</text>
+        <view class='more'>
+          <text class='ft-34 color-1e'>{{addressInfo.receiverMobile}}</text>
+          <image src='/assets/image/ic_youjiantou_xiao@2x.png' class="more-icon"></image>
+        </view>
+      </view>
+      <text class='ft-28 color-222'>{{addressInfo.province}} {{addressInfo.city}} {{addressInfo.district}} {{addressInfo.detailedAddress}}</text>
+    </block>
+    <block wx:if="{{!addressInfo}}">
+      <view style='display:flex;align-items:center;justify-content:space-between;'>
+        <text class='ft-32 color-1e'>请选择收货地址</text>
+        <image src='/assets/image/ic_youjiantou_xiao@2x.png' class="more-icon"></image>
+      </view>
+    </block>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class='submit-btn ft-32 color-FFF' formType="submit" hover-class='hover_class'>提交</button>
+</form>

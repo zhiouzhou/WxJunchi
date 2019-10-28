@@ -1,0 +1,63 @@
+/* pages/user/aboutUs.wxss */
+
+page {
+  background: #fff;
+  border-top: none;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%
+}
+
+.header-image {
+  height: 324rpx;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin: -72rpx;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 144rpx;
+  height: 144rpx;
+}
+
+.logo-title {
+  padding: 20rpx 0 14rpx;
+}
+
+.logo-version {
+  font-size: 12px;
+}
+
+.list {
+  margin-top: 173rpx;
+}
+
+.list-item {
+  /* height: 90rpx; */
+  align-items: center;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  padding: 34rpx 24rpx;
+}
+
+.list-image {
+  width: 13rpx;
+  height: 24rpx;
+}
+
+.list-item text {
+}

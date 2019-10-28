@@ -1,0 +1,26 @@
+<!-- pages/user/myBankCard/myBankCard.wxml -->
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<block wx:if="{{!isEmpty}}">
+  <view class='myBankCard-list' wx:for="{{bankCardArr}}" wx:key="{{item.id}}" style='{{item.bank=="中国农业银行"||item.bank=="中国邮政储蓄银行"?"background: linear-gradient(90deg,rgb(0,196,166),rgb(3,157,133));":item.bank=="浦发银行"||item.bank=="民生银行"||item.bank=="兴业银行"||item.bank=="交通银行"||item.bank=="中国建设银行"?"background: linear-gradient(90deg,rgb(44,118,224),rgb(12,77,170));":"background: linear-gradient(90deg,rgb(232,77,85),rgb(204,14,23));"}}' catchtap='selectBankCard' data-card-info="{{item}}">
+    <view class="myBankCard-info">
+      <image src='{{item.bank=="浦发银行"?"/assets/image/pufa_icon@2x.png":item.bank=="中国工商银行"?"/assets/image/gongshang_icon@2x.png":item.bank=="中国农业银行"?"/assets/image/nongye_icon@2x.png":item.bank=="中国银行"?"/assets/image/china_icon@2x.png":item.bank=="中国建设银行"?"/assets/image/jianshe_icon@2x.png":item.bank=="中国邮政储蓄银行"?"/assets/image/youzheng_icon@2x.png":item.bank=="招商银行"?"/assets/image/zhaoshang_icon@2x.png":item.bank=="交通银行"?"/assets/image/jiaotong_icon@2x.png":item.bank=="中信银行"?"/assets/image/zhongxin_icon@2x.png":item.bank=="兴业银行"?"/assets/image/xingye_icon@2x.png":item.bank=="光大银行"?"/assets/image/guangda_icon@2x.png":item.bank=="民生银行"?"/assets/image/minsheng_icon@2x.png":item.bank=="平安银行"?"/assets/image/pingan_icon@2x.png":""}}' class='bank-image'></image>
+      <view class='bank-name'>
+        <text class='ft-36 color-FFF'>{{item.bank}}</text>
+        <text class='ft-26 color-FFF'>{{item.cardType}}</text>
+      </view>
+    </view>
+    <view class='card-number ft-36 color-FFF'>{{item.accountNo}}</view>
+    <!-- 删除按钮 -->
+    <view class='delete ft-26 color-FFF' bindtap='deleteBankCard' data-id="{{item.id}}">删除</view>
+  </view>
+  <view style='height:88rpx'></view>
+</block>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <view class='select-btn ft-26' bindtap='addBankCard'>添加银行卡</view>
+</view>
+<!-- 添加银行卡 -->
+<view class='ft-32 color-FFF addBankCard' bindtap='addBankCard' hover-class='hover_class' >添加银行卡</view>

@@ -1,0 +1,43 @@
+/* pages/user/myGarage/addGarage.wxss */
+page{
+  background: #fff;
+}
+.garage{
+  padding: 30rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.car-info{
+  border-bottom: 2rpx solid #eaeaea;
+  padding: 30rpx 24rpx;
+}
+
+.upload-image{
+  width: 180rpx;
+  height: 180rpx;
+  border: 2rpx solid #d3d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24rpx;
+}
+.upload-add{
+  width: 48rpx;
+  height: 48rpx;
+}
+.submit{
+  position: fixed;
+  bottom: 48rpx;
+  left: 24rpx;
+  width: 94%;
+  background: #e00000;
+  border-radius: 44rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+}
+.hover_class{
+  background: #aa2b2b
+}

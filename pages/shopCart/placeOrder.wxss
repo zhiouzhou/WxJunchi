@@ -1,0 +1,174 @@
+/* pages/shopCart/placeOrder.wxss */
+
+.address-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 24rpx;
+}
+
+.select-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin: 20rpx 20rpx 0;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.jiantou-icon {
+  width: 13rpx;
+  height: 22rpx;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+}
+
+.letter {
+  height: 4rpx;
+  margin: 0 20rpx;
+}
+
+.letter {
+  height: 4rpx;
+  width: 94%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.letter-image {
+  width: 100%;
+  height: 100%;
+}
+
+.line-image {
+  width: 100%;
+  height: 6rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.order-info {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.product-info-content {
+  display: flex;
+  align-items: cetner;
+  padding: 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.product-name-price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 22rpx 30rpx;
+}
+
+.wx-pay {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  justify-content: space-between;
+}
+
+.pay-mode {
+  display: flex;
+  align-items: center;
+}
+
+.wx-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 12rpx;
+}
+
+.select-icon {
+  width: 42rpx;
+  height: 42rpx;
+}
+ .select-icon1{
+    width: 13rpx;
+    height: 24rpx;
+  }
+.tip{
+  margin: 12rpx 46rpx;
+}
+.title {
+  height: 68rpx;
+  background: linear-gradient(90deg, rgb(204, 14, 23), rgb(232, 77, 85));
+  line-height: 68rpx;
+  font-size: 26rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 98rpx;
+  left: 0;
+  width: 100%;
+  padding: 0 25rpx;
+}
+
+.submit-order {
+  background: #fff;
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 248rpx;
+  height: 72rpx;
+  text-align: center;
+  line-height: 72rpx;
+  border-radius: 72rpx;
+  background: linear-gradient(90deg, rgb(204, 14, 23), rgb(232, 77, 85));
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.select-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin: 20rpx 20rpx 0;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  position: relative;
+}

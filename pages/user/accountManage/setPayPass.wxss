@@ -1,0 +1,41 @@
+/* pages/login/findPassword.wxss */
+
+page {
+  background: #fff;
+  border-top: none;
+}
+
+.login-input {
+  /* margin-top: 19rpx; */
+  border-bottom: 2rpx solid #eaeaea;
+  padding: 36rpx 24rpx;
+}
+
+.getCode-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 24rpx;
+}
+
+.getCode {
+  padding: 14rpx 20rpx;
+  border-radius: 44rpx;
+  border: 2rpx solid #eaeaea;
+}
+
+.findPassword {
+  margin: 80rpx 20rpx;
+}
+
+.ensure {
+  margin: 80rpx 24rpx;
+  background: #e00000;
+  border-radius: 44rpx;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.hover_class{
+  background: #aa2b2b
+}

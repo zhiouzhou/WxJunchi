@@ -1,0 +1,103 @@
+/* pages/shopCart/address.wxss */
+
+.current {
+  margin: 20rpx 0;
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address-info-current {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  line-height: 43rpx;
+}
+
+.ensure {
+  padding: 14rpx 24rpx;
+  border: 2rpx solid #eaeaea;
+  border-radius: 8rpx;
+}
+.search_button{
+  padding: 14rpx 24rpx;
+  border: 2rpx solid #eaeaea;
+  border-radius: 8rpx;
+  color: #fff;
+  background: #e53935
+}
+
+.listData {
+  background: #fff;
+}
+
+.address-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  justify-content: space-between;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+}
+
+.address_icon {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  bottom: 40rpx;
+  left: 40rpx;
+}
+
+.select-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin-top: 100rpx;
+}
+
+.empty-icon {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 40rpx;
+}
+
+.empty-tip {
+  color: #656c78;
+}
+
+.select-btn {
+  color: #656c78;
+  background: #fff;
+  border: 2rpx solid #a9b2bd;
+  width: 176rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+.search{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 12rpx;
+  justify-content: space-between
+}
+.search-input{
+  padding: 10rpx 24rpx;
+  border: 2rpx solid #eaeaea;
+  border-radius: 8rpx;
+  flex: 1;
+  margin-right: 12rpx;
+}

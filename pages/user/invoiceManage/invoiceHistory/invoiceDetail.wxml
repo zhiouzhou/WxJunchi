@@ -1,0 +1,43 @@
+<!--pages/user/invoiceManage/invoiceHistory/invoiceDetail.wxml-->
+<wxs src="../../../../utils/WxsUtil.wxs" module="WxsUtil" />
+<view class='invoice-state'>
+  <view class='ft-36 color-222'>{{invoiceInfo.status=='NO'?'纸质发票未开票':invoiceInfo.status=='ING'?'纸质发票开票中':invoiceInfo.status=='YES'?'纸质发票已开票':''}}</view>
+  <text class='ft-24 color-84'>{{invoiceInfo.gmtCreate}}</text>
+</view>
+<view class='info-title'>接收信息</view>
+<!-- <view class='info-content' style='margin-bottom: 20rpx;'>
+  <text class='ft-24 color-84 label'>电子邮箱</text>
+  <view class='ft-34 color-222'>773852250@qq.com</view>
+</view> -->
+<view class='info-content' style='margin-bottom:0'>
+  <text class='ft-24 color-84 label'>收货地址</text>
+  <view class='ft-34 color-222 address'>
+    <text class='ft-34 color-222'>{{invoiceInfo.receiverName}}</text>
+    <text class='ft-34 color-222'>{{invoiceInfo.receiverPhone}}</text>
+  </view>
+  <view class='ft-28 color-222'>{{invoiceInfo.receiverAddress}}</view>
+</view>
+<view class='info-title'>发票信息</view>
+<view class='info-content' style='border-bottom:2rpx solid #eaeaea'>
+  <text class='ft-24 color-84 label'>发票抬头</text>
+  <view class='ft-34 color-222'>{{invoiceInfo.title}}</view>
+</view>
+<view class='info-content' style='border-bottom:2rpx solid #eaeaea' >
+  <text class='ft-24 color-84 label'>税号</text>
+  <view class='ft-34 color-222'>{{invoiceInfo.taxNo||'无'}}</view>
+</view>
+<view class='info-content' style='border-bottom:2rpx solid #eaeaea'>
+  <text class='ft-24 color-84 label'>发票内容</text>
+  <view class='ft-34 color-222'>商品明细</view>
+</view>
+<view class='info-content' style='border-bottom:2rpx solid #eaeaea'>
+  <text class='ft-24 color-84 label'>发票金额</text>
+  <view class='ft-34 color-222'>
+    <text class='color-2b'>{{WxsUtil.splitNum(invoiceInfo.amount)||0}}</text>
+    <text>元</text>
+  </view>
+</view>
+<view class='info-content'>
+  <text class='ft-24 color-84 label'>申请时间</text>
+  <view class='ft-34 color-222'>{{invoiceInfo.gmtCreate}}</view>
+</view>

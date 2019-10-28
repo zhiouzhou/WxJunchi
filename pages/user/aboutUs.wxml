@@ -1,0 +1,23 @@
+<!--pages/user/aboutUs.wxml-->
+<view class="header">
+  <image src="/assets/image/homepage-bg@2x.png" class="header-image"></image>
+  <view class="logo">
+    <image src="/assets/image/junluLogo@2x.png" class="logo-image"></image>
+    <text class="logo-title ft-30 color-000">骏驰智驾</text>
+    <!-- <text class="logo-version ft-22 color-84">v1.0.0</text> -->
+  </view>
+</view>
+<view class="list">
+  <view class="list-item" style='border-top:2rpx solid #eaeaea' catchtap='gotoImageDetail' data-info-url="https://jl.jcstauto.com/junchi2/junchi_page1.html">
+    <text class='ft-32 color-222'>公司简介</text>
+    <image src="/assets/image/ic_youjiantou_xiao@2x.png" class="list-image"></image>
+  </view>
+  <view class="list-item" catchtap='gotoImageDetail' data-info-url="https://jl.jcstauto.com/junchi2/junchi_ident.html">
+    <text class='ft-32 color-222'>资质认证</text>
+    <image src="/assets/image/ic_youjiantou_xiao@2x.png" class="list-image"></image>
+  </view>
+  <view class="list-item"  catchtap='gotoImageDetail' data-info-url="https://jl.jcstauto.com/junchi2/junchi_agree.html">
+    <text class='ft-32 color-222'>用户协议</text>
+    <image src="/assets/image/ic_youjiantou_xiao@2x.png" class="list-image"></image>
+  </view>
+</view>

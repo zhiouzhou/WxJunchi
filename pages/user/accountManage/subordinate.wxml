@@ -1,0 +1,14 @@
+<!--pages/user/accountManage/sub.wxml-->
+<view class="sub-container" wx:for="{{subList}}" wx:key="index"  wx:if="{{!isEmpty}}">
+   <view class="head_pic"><image src="{{item.headPic?item.headPic:'/assets/image/ic-touxiang@2x.png'}}"  binderror='binderrorimg' data-errorimg="{{index}}" class='head_pic_img'/></view>
+   <view class="subInfo">
+       <text class="ft-32 color-222">{{item.nickname}}</text>
+       <text class="ft-32 color-222">{{item.memberId}}</text>
+   </view>
+</view>
+<!-- 空页面 -->
+<view class='empty' wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无下级人员</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>

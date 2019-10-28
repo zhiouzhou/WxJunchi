@@ -1,0 +1,80 @@
+/* pages/user/accountManage/identification.wxss */
+
+page {
+  background: #fff;
+}
+
+.title {
+  padding: 36rpx 24rpx;
+}
+
+.title_1 {
+  padding: 0 24rpx 20rpx 24rpx;
+}
+
+.tips {
+  padding: 0 24rpx;
+  margin-bottom: 48rpx;
+}
+
+.idCard_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 24rpx 30rpx;
+}
+
+.idCard {
+  width: 336rpx;
+}
+
+.card_1 {
+  height: 264rpx;
+  width: 100%;
+  display: block;
+}
+
+.card_title {
+  padding: 8px;
+  background: #e00000;
+  border-radius: 0 0 12rpx 12rpx;
+  text-align: center;
+}
+
+.warn-tips {
+  padding: 12rpx 24rpx;
+  background: linear-gradient(90deg, rgb(204, 14, 23), rgb(232, 77, 85));
+}
+
+.info-input {
+  padding: 12rpx 24rpx;
+
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.idCard_input {
+  padding: 18rpx 0;
+}
+
+.auth_button{
+  width: 94%;
+  text-align: center;
+  background: #dcdfe6;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 50rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 48rpx 24rpx;
+}
+.no_auth_button{
+   width: 94%;
+  text-align: center;
+  background: #e00000;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 50rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 48rpx 24rpx;
+}

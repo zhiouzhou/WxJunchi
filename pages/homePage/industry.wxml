@@ -1,0 +1,24 @@
+<!--pages/homePage/industry.wxml-->
+
+<import src="/components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<view style="height:{{windowHeight}}px" bindscrolltolower="lower" scroll-y wx:if="{{!isEmpty}}">
+    <view class="message" wx:for="{{messageList}}" wx:key="{{item.id}}" catchtap='gotoDetail' data-url = "{{item.infoUrl}}" data-act-id = "{{item.id}}">
+        <view class='message-title ft-32 color-222'>{{item.activeName}}</view>
+        <image class='message-image' src='{{item.picPath}}'></image>
+        <view class='ft-32 colo-222' style='margin-bottom:24rpx;'>{{item.infoAbbr}}</view>
+        <view class='ft-32 color-222 ' class='check-detail ft-32 color-222' >查看详情<image src='/assets/image/ic_youjiantou_da@2x.png' class='check-ic'></image></view>
+    </view>
+     <view class="message" wx:for="{{messageTwoList}}" wx:key="{{item.id}}" catchtap='gotoIndustry' data-url = "{{item.infoUrl}}" data-act-id = "{{item.id}}">
+        <view class='message-title ft-32 color-222'>{{item.activeName}}</view>
+        <image class='message-image' src='{{item.picPath}}'></image>
+        <view class='ft-32 colo-222' style='margin-bottom:24rpx;'>{{item.infoAbbr}}</view>
+        <view class='ft-32 color-222 ' class='check-detail ft-32 color-222' >查看详情<image src='/assets/image/ic_youjiantou_da@2x.png' class='check-ic'></image></view>
+    </view>
+</view>
+<!-- 空页面 -->
+<view class='empty'  wx:if="{{isEmpty}}">
+  <image class='empty-icon' src='/assets/image/empty-ic@2x.png'></image>
+  <text class='ft-26 empty-tip'>暂无数据</text>
+  <!-- <view class='select-btn ft-26' bindtap='selctProduct'>选购商品</view> -->
+</view>

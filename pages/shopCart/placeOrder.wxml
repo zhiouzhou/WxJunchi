@@ -1,0 +1,70 @@
+<!--pages/shopCart/placeOrder.wxml-->
+<import src="../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$yjp.toast }}" />
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<skeleton selector="skeleton" loading="spin" bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+
+<!-- 订单信息 -->
+<view class='order-info skeleton'>
+  <block wx:for="{{productList}}" wx:for-item="productItem">
+    <view class='product-info-content'>
+      <image src='{{productItem.goods.goodsImg||productItem.goodsImg}}' class='product-image skeleton-rect' mode='aspectFit'></image>
+      <view class='product-name-price '>
+        <text class='ft-30 color-333 skeleton-rect'>{{productItem.goods.name||productItem.name||''}}</text>
+        <view class='product-price '>
+          <view class='skeleton-rect'>
+            <text class='color-2b ft-24'>￥</text>
+            <text class='color-2b ft-44'>{{pageType=='shopCart'?WxsUtil.splitNum(productItem.price,2):WxsUtil.splitNum(productItem.currentPrice,2)||''}}</text>
+          </view>
+          <view class='num ft-30 skeleton-rect'>x {{productItem.count||count||''}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='count'>
+    <text class='ft-26 color-222 skeleton-rect' style='margin-right:30rpx;'>共{{count||''}}件商品</text>
+    <view class='skeleton-rect'>
+      <text class='ft-26 color-222'>合计：</text>
+      <text class="color-2b ft-26">￥</text>
+      <text class="color-2b ft-44">{{WxsUtil.splitNum(totalPrice,2)||''}}</text>
+    </view>
+  </view>
+</view>
+<view class='select-address' catchtap='gotoGarage' data-tag="myGarage">
+  <text class="ft-32 color-333" wx:if="{{!garageInfo.name}}">请选择车辆</text>
+  <text class="ft-32 color-333" wx:else>{{garageInfo.name}}</text>
+  <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon1'></image>
+</view>
+<view class='select-address' catchtap='gotoGarage' data-tag="receiveAddress">
+  <text class="ft-32 color-333" wx:if="{{!addressInfo.id}}">请选择地址</text>
+  <text class="ft-32 color-333" wx:else>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.detailedAddress}}</text>
+  <image src='/assets/image/ic_youjiantou_da@2x.png' class='select-icon1'></image>
+</view>
+<view class='ft-28 color-E53935 tip'>*此地址用于就近指派安装门店</view>
+<view class='select-address'>
+  <text class="ft-32 color-333">联系电话</text>
+  <input class='ft-32 color-222' style='text-align:right' placeholder='请输入联系方式' value='{{userPhone}}' bindinput="onMobile"></input>
+</view>
+
+<!-- 微信支付 -->
+<view class='wx-pay skeleton'>
+  <view class='pay-mode'>
+    <image class='wx-icon' src='/assets/image/pay@2x.png'></image>
+    <text>微信支付</text>
+  </view>
+  <image src='/assets/image/ic_gouwuchegouxuan@2x.png' class='select-icon'></image>
+</view>
+<!-- 开发票提示 -->
+<view class='title'>
+  如需开发票,请在订单安装完成后,进入个人中心开具
+</view>
+<!-- 提交订单按钮 -->
+<view class='submit-order'>
+  <view class='ft-34 color-222'>应付：
+    <text class='ft-34 color-2b'>￥{{WxsUtil.splitNum(totalPrice)||''}}</text>
+  </view>
+  <form bindsubmit='submitOrder' report-submit='true'>
+    <button class='submit-button' formType="submit">提交订单</button>
+  </form>
+
+</view>

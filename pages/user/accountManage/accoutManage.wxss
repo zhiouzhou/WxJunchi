@@ -1,0 +1,121 @@
+/* pages/user/accountManage/accoutManage.wxss */
+
+.account-info {
+  background: #fff;
+}
+
+.account-info-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 48rpx 0rpx 48rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.accont-name {
+  display: flex;
+  align-items: center;
+}
+
+.account-name-number {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.account-img {
+  width: 104rpx;
+  height: 104rpx;
+  margin-right: 25rpx;
+  border-radius: 50px;
+}
+
+.edit-button {
+  width: 192rpx;
+  border-radius: 32rpx 0 0 32rpx;
+  background: linear-gradient(90deg, rgb(204, 14, 23), rgb(232, 77, 85));
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.account-manage-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.item-title {
+  padding-bottom: 24rpx;
+}
+
+.show-hide {
+  min-width: 112rpx;
+  height: 48rpx;
+  text-align: center;
+  line-height: 48rpx;
+  border: 2rpx solid #d3d3d3;
+  color: #222;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+}
+
+.select-icon {
+  width: 13rpx;
+  height: 24rpx;
+  margin-left: 20rpx;
+}
+
+.manage {
+  background: #fff;
+  margin-top: 24rpx;
+}
+
+.manage-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34rpx 24rpx;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.manage-title text {
+  font-size: 32rpx;
+  color: #222;
+}
+
+.signOut {
+  background: #e00000;
+  width: 94%;
+  height: 88rpx;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 16rpx;
+  text-align: center;
+  margin: 48rpx auto;
+  line-height: 88rpx;
+}
+
+.setPassword {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 34rpx 24rpx;
+  margin-top: 20rpx;
+}
+
+.hover_class {
+  background: #aa2b2b;
+}
+
+.certified_icon {
+  width: 98rpx;
+  height: 34rpx;
+  margin-left: 24rpx;
+}

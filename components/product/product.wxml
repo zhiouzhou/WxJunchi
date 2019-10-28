@@ -1,0 +1,42 @@
+<!--components/product/product.wxml-->
+<wxs src="../../utils/WxsUtil.wxs" module="WxsUtil" />
+<template name="product">
+  <view class='product-info-content' wx:for="{{productItem}}">
+    <image src='{{item.goodsImg}}' class='product-image' mode='aspectFit'></image>
+    <view class='product-name-price'>
+      <text class='ft-30 color-333'>{{item.goodsName}}</text>
+      <view class='product-price'>
+        <view>
+          <text class='color-2b ft-24'>￥</text>
+          <text class='color-2b ft-44'>{{WxsUtil.splitNum(item.goodsPrice)}}</text>
+        </view>
+        <view class='num ft-30'>x {{item.count}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 订单详情按钮 -->
+  <!-- <view class='edit-btn' wx:if="{{tag=='orderDetail'}}">
+    <view class='after-sale ft-28 color-222'>申请售后</view>
+  </view> -->
+</template>
+<template name="product-detail">
+  <view class='product-info-content-detail skeleton-rect' wx:for="{{productItem}}">
+    <view class='product-info-content-1'>
+      <image src='{{item.goodsImg}}' class='product-image skeleton-rect' mode='aspectFit'></image>
+      <view class='product-name-price skeleton-rect'>
+        <text class='ft-30 color-333' skeleton-rect>{{item.goodsName}}</text>
+        <view class='product-price'>
+          <view class='skeleton-rect'>
+            <text class='color-2b ft-24'>￥</text>
+            <text class='color-2b ft-44'>{{WxsUtil.splitNum(item.goodsPrice)}}</text>
+          </view>
+          <view class='num ft-30 skeleton-rect'>x {{item.count}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 订单详情按钮 -->
+    <!-- <view class='edit-btn' wx:if="{{tag=='orderDetail'}}">
+      <view class='after-sale ft-28 color-222' bindtap='applyAfterSale' data-item="{{item}}">申请售后</view>
+    </view> -->
+  </view>
+</template>
